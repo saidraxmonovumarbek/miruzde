@@ -1,0 +1,127 @@
+/* RESET & BASE */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1d2671, #c33764);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 15px;
+}
+
+/* MAIN CONTAINER */
+.container {
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    color: white;
+}
+
+/* HEADER */
+h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    opacity: 0.9;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+/* CARD BOXES */
+.card {
+    background: white;
+    color: #333;
+    border-radius: 14px;
+    padding: 25px 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    text-align: left;
+}
+
+.card h2 {
+    margin-bottom: 15px;
+    text-align: center;
+    color: #222;
+}
+
+/* TEXT LINES */
+.card p {
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+/* BUTTON LINKS */
+.card a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    background: #f3f3f3;
+    color: #333;
+    text-decoration: none;
+
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* ICON COLORS */
+.fa-instagram {
+    color: #e1306c;
+}
+
+.fa-telegram {
+    color: #0088cc;
+}
+
+.fa-envelope {
+    color: #d44638;
+}
+
+/* HOVER EFFECT */
+.card a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    background: #fff;
+}
+
+/* DONATION & CRYPTO TEXT */
+.card strong {
+    font-size: 16px;
+    word-break: break-all;
+}
+
+/* FOOTER */
+footer {
+    margin-top: 20px;
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+/* MOBILE FRIENDLY */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 34px;
+    }
+
+    .card {
+        padding: 20px 15px;
+    }
+
+    .card a {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
