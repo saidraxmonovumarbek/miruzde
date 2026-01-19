@@ -2,98 +2,119 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Miruzde – Official Links</title>
 
-    <!-- Font Awesome for Icons -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Your CSS -->
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <!-- HEADER -->
-        <h1>🎵 Miruzde</h1>
-        <p class="subtitle">Official links & support page</p>
+    <!-- HEADER -->
+    <h1 id="title">🎵 Miruzde</h1>
+    <p class="subtitle">Official links & support page</p>
 
-        <!-- CONTACT & SOCIAL -->
-        <div class="card">
-  <h2>📱 Contact & Social</h2>
+    <!-- CONTACT & SOCIAL -->
+    <div class="card">
+        <h2>📱 Contact & Social</h2>
 
-  <p class="label phone">📞 Phone – <strong>+998 93 199 49 99</strong></p>
+        <p class="label phone">📞 Phone – <strong>+998 93 199 49 99</strong></p>
 
-  <a class="link-btn instagram" href="https://instagram.com/miruzde" target="_blank">
-    <i class="fab fa-instagram"></i> Instagram – miruzde
-  </a>
+        <a class="link-btn instagram" href="https://instagram.com/miruzde" target="_blank" rel="noopener">
+            <i class="fab fa-instagram"></i> Instagram – miruzde
+        </a>
 
-  <a class="link-btn telegram" href="https://t.me/miruzde" target="_blank">
-    <i class="fab fa-telegram-plane"></i> Telegram Account – @miruzde
-  </a>
+        <a class="link-btn telegram" href="https://t.me/miruzde" target="_blank" rel="noopener">
+            <i class="fab fa-telegram-plane"></i> Telegram Account – @miruzde
+        </a>
 
-  <a class="link-btn telegram" href="https://t.me/blog_of_Mir" target="_blank">
-    <i class="fab fa-telegram-plane"></i> Telegram Channel – @blog_of_Mir
-  </a>
+        <a class="link-btn telegram" href="https://t.me/blog_of_Mir" target="_blank" rel="noopener">
+            <i class="fab fa-telegram-plane"></i> Telegram Channel – @blog_of_Mir
+        </a>
 
-  <!-- GMAIL WITH GOOGLE LOGO -->
-  <a class="link-btn gmail" href="mailto:miruzde@gmail.com">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" class="gmail-icon">
-    Email – miruzde@gmail.com
-  </a>
-</div>
-
-        <!-- DONATION -->
-        <div class="card">
-  <h2>❤️ Support & Donations</h2>
-
-  <p class="bank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Hana_Bank_logo.svg" class="bank-logo">
-    Hana – <strong>55991044203707</strong>
-  </p>
-
-  <p class="bank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Toss_logo.png" class="bank-logo">
-    Toss – <strong>100201364233</strong>
-  </p>
-</div>
-
-        <!-- CRYPTO -->
-        <div class="card">
-  <h2>💰 Crypto Addresses</h2>
-
-  <p class="crypto" onclick="copyText('TKV66Bc19oWXUN6iRkCNg8imxK8gjxrKU8X')">
-    🔵 TRC20 Address:<br>
-    <strong id="trc20">TKV66Bc19oWXUN6iRkCNg8imxK8gjxrKU8X</strong>
-  </p>
-
-  <p class="crypto" onclick="copyText('0x507ac6f30ce7c6b4b3f587f29d1a60222cdd1757')">
-    🔵 BEP20 Address:<br>
-    <strong id="bep20">0x507ac6f30ce7c6b4b3f587f29d1a60222cdd1757</strong>
-  </p>
-</div>
-
-<!-- COPY NOTIFICATION -->
-<div id="toast">Copied ✅</div>
-
-        <!-- FOOTER -->
-        <footer>
-            <p>© 2026 Miruzde • All rights reserved</p>
-        </footer>
-
+        <a class="link-btn gmail" href="mailto:miruzde@gmail.com">
+            <i class="fas fa-envelope"></i> Email – miruzde@gmail.com
+        </a>
     </div>
+
+    <!-- DONATIONS -->
+    <div class="card">
+        <h2>❤️ Support & Donations</h2>
+
+        <p class="bank hana">
+            <i class="fas fa-university"></i>
+            Hana – <strong>55991044203707</strong>
+        </p>
+
+        <p class="bank toss">
+            <i class="fas fa-credit-card"></i>
+            Toss – <strong>100201364233</strong>
+        </p>
+    </div>
+
+    <!-- CRYPTO -->
+    <div class="card">
+        <h2>💰 Crypto Addresses</h2>
+
+        <p class="crypto" onclick="copyText('TKV66Bc19oWXUN6iRkCNg8imxK8gjxrKU8X')">
+            🔵 TRC20 Address:<br>
+            <strong>TKV66Bc19oWXUN6iRkCNg8imxK8gjxrKU8X</strong>
+        </p>
+
+        <p class="crypto" onclick="copyText('0x507ac6f30ce7c6b4b3f587f29d1a60222cdd1757')">
+            🔵 BEP20 Address:<br>
+            <strong>0x507ac6f30ce7c6b4b3f587f29d1a60222cdd1757</strong>
+        </p>
+    </div>
+
+    <!-- TOAST MESSAGE -->
+    <div id="toast">Copied ✅</div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Miruzde • All rights reserved</p>
+    </footer>
+
+</div>
+
+<!-- TITLE TYPING ANIMATION -->
+<script>
+const title = document.getElementById("title");
+const text = title.innerText;
+title.innerText = "";
+
+let i = 0;
+function typeEffect() {
+  if (i < text.length) {
+    title.innerText += text.charAt(i);
+    i++;
+    setTimeout(typeEffect, 80);
+  }
+}
+typeEffect();
+</script>
+
+<!-- COPY FUNCTION -->
 <script>
 function copyText(text) {
-  navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(text);
 
-  const toast = document.getElementById("toast");
-  toast.classList.add("show");
+    const toast = document.getElementById("toast");
+    toast.style.display = "block";
 
-  setTimeout(() => {
-    toast.classList.remove("show");
-  }, 2000);
+    setTimeout(() => {
+        toast.style.display = "none";
+    }, 2000);
 }
 </script>
+
 </body>
 </html>
