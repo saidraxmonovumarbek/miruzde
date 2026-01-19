@@ -1,91 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miruzde – Official Links</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>@miruzde – Official Links</title>
 
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Your CSS -->
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+<body class="dark">
+
+<!-- FLOATING CONTROLS -->
+<div class="controls">
+
+  <!-- LANGUAGE SWITCH -->
+  <div class="lang-switch">
+    <button onclick="setLanguage('en')">EN</button>
+    <button onclick="setLanguage('ru')">RU</button>
+    <button onclick="setLanguage('uz')">UZ</button>
+  </div>
+
+  <!-- THEME SWITCH -->
+  <button id="themeToggle" class="theme-btn">🌙</button>
+</div>
 
 <div class="container">
 
-    <!-- HEADER -->
-    <h1 id="title">🎵 Miruzde</h1>
-    <p class="subtitle">Official links & support page</p>
+  <!-- HEADER -->
+  <h1 id="title">@miruzde</h1>
+  <p class="subtitle" id="subtitle">Official links & support page</p>
 
-    <!-- CONTACT & SOCIAL -->
-    <div class="card">
-        <h2>📱 Contact & Social</h2>
+  <!-- CONTACT -->
+  <div class="card">
+    <h2 id="contactTitle">📱 Contact & Social</h2>
 
-        <p class="label phone">📞 Phone – <strong>+998 93 199 49 99</strong></p>
+    <a class="link-btn instagram" href="https://instagram.com/miruzde" target="_blank">
+      <i class="fab fa-instagram"></i> <span id="instaText">Instagram – miruzde</span>
+    </a>
 
-        <a class="link-btn instagram" href="https://instagram.com/miruzde" target="_blank" rel="noopener">
-            <i class="fab fa-instagram"></i> Instagram – miruzde
-        </a>
+    <a class="link-btn telegram" href="https://t.me/miruzde" target="_blank">
+      <i class="fab fa-telegram-plane"></i> <span id="tgAccText">Telegram Account – @miruzde</span>
+    </a>
 
-        <a class="link-btn telegram" href="https://t.me/miruzde" target="_blank" rel="noopener">
-            <i class="fab fa-telegram-plane"></i> Telegram Account – @miruzde
-        </a>
+    <a class="link-btn telegram" href="https://t.me/blog_of_Mir" target="_blank">
+      <i class="fab fa-telegram-plane"></i> <span id="tgChanText">Telegram Channel – @blog_of_Mir</span>
+    </a>
 
-        <a class="link-btn telegram" href="https://t.me/blog_of_Mir" target="_blank" rel="noopener">
-            <i class="fab fa-telegram-plane"></i> Telegram Channel – @blog_of_Mir
-        </a>
+    <a class="link-btn gmail" href="mailto:miruzde@gmail.com">
+      <i class="fas fa-envelope"></i> <span id="emailText">Email – miruzde@gmail.com</span>
+    </a>
+  </div>
 
-        <a class="link-btn gmail" href="mailto:miruzde@gmail.com">
-            <i class="fas fa-envelope"></i> Email – miruzde@gmail.com
-        </a>
-    </div>
+  <!-- DONATIONS -->
+  <div class="card">
+    <h2 id="donationTitle">❤️ Support & Donations</h2>
 
-    <!-- DONATIONS -->
-    <div class="card">
-        <h2>❤️ Support & Donations</h2>
+    <p class="bank hana" onclick="copyText('55991044203707')">
+      <i class="fas fa-university"></i>
+      <span id="hanaText">Hana –</span> <strong>55991044203707</strong>
+    </p>
 
-        <p class="bank hana">
-            <i class="fas fa-university"></i>
-            Hana – <strong>55991044203707</strong>
-        </p>
+    <p class="bank toss" onclick="copyText('100201364233')">
+      <i class="fas fa-credit-card"></i>
+      <span id="tossText">Toss –</span> <strong>100201364233</strong>
+    </p>
+  </div>
 
-        <p class="bank toss">
-            <i class="fas fa-credit-card"></i>
-            Toss – <strong>100201364233</strong>
-        </p>
-    </div>
+  <!-- CRYPTO -->
+  <div class="card">
+    <h2 id="cryptoTitle">💰 Crypto Addresses</h2>
 
-    <!-- CRYPTO -->
-    <div class="card">
-        <h2>💰 Crypto Addresses</h2>
+    <p class="crypto" onclick="copyText('TKV66Bc19oWXUN6iRkCNg8imxK8gjxrKU8X')">
+      🔵 <span id="trcText">TRC20 Address</span>:<br>
+      <strong>TKV66Bc19oWXUN6iRkCNg8imxK8gjxrKU8X</strong>
+    </p>
 
-        <p class="crypto" onclick="copyText('TKV66Bc19oWXUN6iRkCNg8imxK8gjxrKU8X')">
-            🔵 TRC20 Address:<br>
-            <strong>TKV66Bc19oWXUN6iRkCNg8imxK8gjxrKU8X</strong>
-        </p>
+    <p class="crypto" onclick="copyText('0x507ac6f30ce7c6b4b3f587f29d1a60222cdd1757')">
+      🔵 <span id="bepText">BEP20 Address</span>:<br>
+      <strong>0x507ac6f30ce7c6b4b3f587f29d1a60222cdd1757</strong>
+    </p>
+  </div>
 
-        <p class="crypto" onclick="copyText('0x507ac6f30ce7c6b4b3f587f29d1a60222cdd1757')">
-            🔵 BEP20 Address:<br>
-            <strong>0x507ac6f30ce7c6b4b3f587f29d1a60222cdd1757</strong>
-        </p>
-    </div>
+  <!-- TOAST -->
+  <div id="toast">Copied ✅</div>
 
-    <!-- TOAST MESSAGE -->
-    <div id="toast">Copied ✅</div>
-
-    <!-- FOOTER -->
-    <footer>
-        <p>© 2026 Miruzde • All rights reserved</p>
-    </footer>
+  <!-- FOOTER -->
+  <footer>
+    <p id="footerText">© 2026 @miruzde • All rights reserved</p>
+  </footer>
 
 </div>
 
-<!-- TITLE TYPING ANIMATION -->
+<!-- SMOOTH TITLE ANIMATION -->
 <script>
 const title = document.getElementById("title");
 const text = title.innerText;
@@ -96,7 +104,7 @@ function typeEffect() {
   if (i < text.length) {
     title.innerText += text.charAt(i);
     i++;
-    setTimeout(typeEffect, 80);
+    setTimeout(typeEffect, 100);
   }
 }
 typeEffect();
@@ -105,15 +113,90 @@ typeEffect();
 <!-- COPY FUNCTION -->
 <script>
 function copyText(text) {
-    navigator.clipboard.writeText(text);
-
-    const toast = document.getElementById("toast");
-    toast.style.display = "block";
-
-    setTimeout(() => {
-        toast.style.display = "none";
-    }, 2000);
+  navigator.clipboard.writeText(text);
+  const toast = document.getElementById("toast");
+  toast.style.display = "block";
+  setTimeout(() => toast.style.display = "none", 2000);
 }
+</script>
+
+<!-- LANGUAGE SYSTEM -->
+<script>
+const translations = {
+  en: {
+    subtitle: "Official links & support page",
+    contact: "📱 Contact & Social",
+    insta: "Instagram – miruzde",
+    tgAcc: "Telegram Account – @miruzde",
+    tgChan: "Telegram Channel – @blog_of_Mir",
+    email: "Email – miruzde@gmail.com",
+    donation: "❤️ Support & Donations",
+    hana: "Hana –",
+    toss: "Toss –",
+    crypto: "💰 Crypto Addresses",
+    trc: "TRC20 Address",
+    bep: "BEP20 Address",
+    footer: "© 2026 @miruzde • All rights reserved"
+  },
+  ru: {
+    subtitle: "Официальные ссылки и поддержка",
+    contact: "📱 Контакты и соцсети",
+    insta: "Instagram – miruzde",
+    tgAcc: "Телеграм аккаунт – @miruzde",
+    tgChan: "Телеграм канал – @blog_of_Mir",
+    email: "Почта – miruzde@gmail.com",
+    donation: "❤️ Поддержка и донаты",
+    hana: "Hana –",
+    toss: "Toss –",
+    crypto: "💰 Крипто адреса",
+    trc: "TRC20 Адрес",
+    bep: "BEP20 Адрес",
+    footer: "© 2026 @miruzde • Все права защищены"
+  },
+  uz: {
+    subtitle: "Rasmiy havolalar va qo‘llab-quvvatlash",
+    contact: "📱 Aloqa va ijtimoiy tarmoqlar",
+    insta: "Instagram – miruzde",
+    tgAcc: "Telegram akkaunt – @miruzde",
+    tgChan: "Telegram kanal – @blog_of_Mir",
+    email: "Email – miruzde@gmail.com",
+    donation: "❤️ Qo‘llab-quvvatlash va xayriya",
+    hana: "Hana –",
+    toss: "Toss –",
+    crypto: "💰 Kripto manzillar",
+    trc: "TRC20 Manzil",
+    bep: "BEP20 Manzil",
+    footer: "© 2026 @miruzde • Barcha huquqlar himoyalangan"
+  }
+};
+
+function setLanguage(lang) {
+  const t = translations[lang];
+  document.getElementById("subtitle").innerText = t.subtitle;
+  document.getElementById("contactTitle").innerText = t.contact;
+  document.getElementById("instaText").innerText = t.insta;
+  document.getElementById("tgAccText").innerText = t.tgAcc;
+  document.getElementById("tgChanText").innerText = t.tgChan;
+  document.getElementById("emailText").innerText = t.email;
+  document.getElementById("donationTitle").innerText = t.donation;
+  document.getElementById("hanaText").innerText = t.hana;
+  document.getElementById("tossText").innerText = t.toss;
+  document.getElementById("cryptoTitle").innerText = t.crypto;
+  document.getElementById("trcText").innerText = t.trc;
+  document.getElementById("bepText").innerText = t.bep;
+  document.getElementById("footerText").innerText = t.footer;
+}
+</script>
+
+<!-- THEME SWITCH -->
+<script>
+const toggle = document.getElementById("themeToggle");
+
+toggle.onclick = () => {
+  document.body.classList.toggle("light");
+  document.body.classList.toggle("dark");
+  toggle.textContent = document.body.classList.contains("light") ? "☀️" : "🌙";
+};
 </script>
 
 </body>
