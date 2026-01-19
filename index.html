@@ -3,33 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>@miruzde – Official Links</title>
+<title>@miruzde – Official Page</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="dark">
+<body class="light">
+
+<!-- FLOATING BACKGROUND ICONS (DO NOT REMOVE 😍) -->
+<div class="icons-bg">
+  <i class="fab fa-instagram"></i>
+  <i class="fab fa-telegram-plane"></i>
+  <i class="fab fa-twitter"></i>
+  <i class="fab fa-youtube"></i>
+  <i class="fab fa-facebook"></i>
+  <i class="fab fa-tiktok"></i>
+  <i class="fab fa-linkedin"></i>
+</div>
 
 <!-- FLOATING CONTROLS -->
 <div class="controls">
-
   <div class="lang-switch">
     <button onclick="setLanguage('en')">EN</button>
     <button onclick="setLanguage('ru')">RU</button>
     <button onclick="setLanguage('uz')">UZ</button>
   </div>
-
   <button id="themeToggle" class="theme-btn">🌙</button>
 </div>
 
 <div class="container">
 
-  <!-- HEADER -->
+  <!-- HERO -->
   <h1 id="title">@miruzde</h1>
   <p class="subtitle" id="subtitle">Official links & support page</p>
 
@@ -60,16 +67,16 @@
 
     <div class="copy-box" onclick="copyText('55991044203707')">
       <p class="bank hana">
-        <i class="fas fa-university"></i>
-        <span id="hanaText">Hana</span> — <strong>55991044203707</strong>
+        <i class="fas fa-university"></i> <span id="hanaText">Hana</span><br>
+        <strong>55991044203707</strong>
       </p>
       <span class="copy-btn" id="copyHana">Click to copy</span>
     </div>
 
     <div class="copy-box" onclick="copyText('100201364233')">
       <p class="bank toss">
-        <i class="fas fa-credit-card"></i>
-        <span id="tossText">Toss</span> — <strong>100201364233</strong>
+        <i class="fas fa-credit-card"></i> <span id="tossText">Toss</span><br>
+        <strong>100201364233</strong>
       </p>
       <span class="copy-btn" id="copyToss">Click to copy</span>
     </div>
@@ -119,7 +126,7 @@ function typeEffect() {
   if (i < text.length) {
     title.innerText += text.charAt(i);
     i++;
-    setTimeout(typeEffect, 120);
+    setTimeout(typeEffect, 100);
   }
 }
 typeEffect();
@@ -187,24 +194,24 @@ function setLanguage(lang) {
   currentLang = lang;
   const t = translations[lang];
 
-  document.getElementById("subtitle").innerText = t.subtitle;
-  document.getElementById("contactTitle").innerText = t.contact;
-  document.getElementById("instaText").innerText = t.insta;
-  document.getElementById("tgAccText").innerText = t.tgAcc;
-  document.getElementById("tgChanText").innerText = t.tgChan;
-  document.getElementById("emailText").innerText = t.email;
-  document.getElementById("donationTitle").innerText = t.donation;
-  document.getElementById("hanaText").innerText = t.hana;
-  document.getElementById("tossText").innerText = t.toss;
-  document.getElementById("cryptoTitle").innerText = t.crypto;
-  document.getElementById("trcText").innerText = t.trc;
-  document.getElementById("bepText").innerText = t.bep;
-  document.getElementById("footerText").innerText = t.footer;
+  subtitle.innerText = t.subtitle;
+  contactTitle.innerText = t.contact;
+  instaText.innerText = t.insta;
+  tgAccText.innerText = t.tgAcc;
+  tgChanText.innerText = t.tgChan;
+  emailText.innerText = t.email;
+  donationTitle.innerText = t.donation;
+  hanaText.innerText = t.hana;
+  tossText.innerText = t.toss;
+  cryptoTitle.innerText = t.crypto;
+  trcText.innerText = t.trc;
+  bepText.innerText = t.bep;
+  footerText.innerText = t.footer;
 
-  document.getElementById("copyHana").innerText = t.copy;
-  document.getElementById("copyToss").innerText = t.copy;
-  document.getElementById("copyTRC").innerText = t.copy;
-  document.getElementById("copyBEP").innerText = t.copy;
+  copyHana.innerText = t.copy;
+  copyToss.innerText = t.copy;
+  copyTRC.innerText = t.copy;
+  copyBEP.innerText = t.copy;
 }
 </script>
 
@@ -228,9 +235,9 @@ function copyText(text) {
 const toggle = document.getElementById("themeToggle");
 
 toggle.onclick = () => {
-  document.body.classList.toggle("light");
   document.body.classList.toggle("dark");
-  toggle.textContent = document.body.classList.contains("light") ? "☀️" : "🌙";
+  document.body.classList.toggle("light");
+  toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
 };
 </script>
 
