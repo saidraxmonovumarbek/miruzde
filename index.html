@@ -118,41 +118,108 @@
 </div>
 
 <script>
-/* FLOATING ICON RANDOM POSITIONS */
+/* RANDOM FLOAT POSITIONS */
 document.querySelectorAll(".icons-bg i").forEach(icon => {
   icon.style.left = Math.random() * 100 + "%";
   icon.style.top = Math.random() * 100 + "%";
 });
 
-/* TITLE ANIMATION */
+/* TITLE TYPE ANIMATION */
 const title = document.getElementById("title");
-const text = title.innerText;
+const originalText = title.innerText;
 title.innerText = "";
-let i = 0;
+let index = 0;
+
 function typeEffect() {
-  if (i < text.length) {
-    title.innerText += text.charAt(i);
-    i++;
+  if (index < originalText.length) {
+    title.innerText += originalText.charAt(index);
+    index++;
     setTimeout(typeEffect, 80);
   }
 }
 typeEffect();
 
-/* LANGUAGE + COPY + THEME */
+/* FULL LANGUAGE SYSTEM */
 let currentLang = "en";
 
 const translations = {
-  en: { copied:"Copied ✅", copy:"Click to copy" },
-  ru: { copied:"Скопировано ✅", copy:"Нажмите, чтобы скопировать" },
-  uz: { copied:"Nusxa olindi ✅", copy:"Nusxa olish" }
+  en: {
+    subtitle: "Official links & support page",
+    contact: "Contact & Social",
+    insta: "Instagram – miruzde",
+    tgAcc: "Telegram Account – @miruzde",
+    tgChan: "Telegram Channel – @blog_of_Mir",
+    email: "Email – miruzde@gmail.com",
+    donation: "Support & Donations",
+    hana: "Hana",
+    toss: "Toss",
+    crypto: "Crypto Addresses",
+    trc: "TRC20 Address",
+    bep: "BEP20 Address",
+    footer: "© 2026 @miruzde • All rights reserved",
+    copied: "Copied ✅",
+    copy: "Click to copy"
+  },
+
+  ru: {
+    subtitle: "Официальные ссылки и поддержка",
+    contact: "Контакты и соцсети",
+    insta: "Instagram – miruzde",
+    tgAcc: "Телеграм аккаунт – @miruzde",
+    tgChan: "Телеграм канал – @blog_of_Mir",
+    email: "Почта – miruzde@gmail.com",
+    donation: "Поддержка и донаты",
+    hana: "Hana",
+    toss: "Toss",
+    crypto: "Крипто адреса",
+    trc: "TRC20 Адрес",
+    bep: "BEP20 Адрес",
+    footer: "© 2026 @miruzde • Все права защищены",
+    copied: "Скопировано ✅",
+    copy: "Нажмите, чтобы скопировать"
+  },
+
+  uz: {
+    subtitle: "Rasmiy havolalar va qo‘llab-quvvatlash",
+    contact: "Aloqa va ijtimoiy tarmoqlar",
+    insta: "Instagram – miruzde",
+    tgAcc: "Telegram akkaunt – @miruzde",
+    tgChan: "Telegram kanal – @blog_of_Mir",
+    email: "Email – miruzde@gmail.com",
+    donation: "Qo‘llab-quvvatlash va xayriya",
+    hana: "Hana",
+    toss: "Toss",
+    crypto: "Kripto manzillar",
+    trc: "TRC20 Manzil",
+    bep: "BEP20 Manzil",
+    footer: "© 2026 @miruzde • Barcha huquqlar himoyalangan",
+    copied: "Nusxa olindi ✅",
+    copy: "Nusxa olish"
+  }
 };
 
 function setLanguage(lang) {
   currentLang = lang;
-  copyHana.innerText = translations[lang].copy;
-  copyToss.innerText = translations[lang].copy;
-  copyTRC.innerText = translations[lang].copy;
-  copyBEP.innerText = translations[lang].copy;
+  const t = translations[lang];
+
+  subtitle.innerText = t.subtitle;
+  contactTitle.innerText = t.contact;
+  instaText.innerText = t.insta;
+  tgAccText.innerText = t.tgAcc;
+  tgChanText.innerText = t.tgChan;
+  emailText.innerText = t.email;
+  donationTitle.innerText = t.donation;
+  hanaText.innerText = t.hana;
+  tossText.innerText = t.toss;
+  cryptoTitle.innerText = t.crypto;
+  trcText.innerText = t.trc;
+  bepText.innerText = t.bep;
+  footerText.innerText = t.footer;
+
+  copyHana.innerText = t.copy;
+  copyToss.innerText = t.copy;
+  copyTRC.innerText = t.copy;
+  copyBEP.innerText = t.copy;
 }
 
 function copyText(text) {
@@ -163,6 +230,7 @@ function copyText(text) {
   setTimeout(() => toast.style.display = "none", 2000);
 }
 
+/* DARK / LIGHT */
 const toggle = document.getElementById("themeToggle");
 toggle.onclick = () => {
   document.body.classList.toggle("dark");
