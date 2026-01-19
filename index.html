@@ -6,7 +6,10 @@
 <title>@miruzde – Official Links</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,14 +18,12 @@
 <!-- FLOATING CONTROLS -->
 <div class="controls">
 
-  <!-- LANGUAGE SWITCH -->
   <div class="lang-switch">
     <button onclick="setLanguage('en')">EN</button>
     <button onclick="setLanguage('ru')">RU</button>
     <button onclick="setLanguage('uz')">UZ</button>
   </div>
 
-  <!-- THEME SWITCH -->
   <button id="themeToggle" class="theme-btn">🌙</button>
 </div>
 
@@ -34,7 +35,7 @@
 
   <!-- CONTACT -->
   <div class="card">
-    <h2 id="contactTitle">📱 Contact & Social</h2>
+    <h2 class="section-title" id="contactTitle">Contact & Social</h2>
 
     <a class="link-btn instagram" href="https://instagram.com/miruzde" target="_blank">
       <i class="fab fa-instagram"></i> <span id="instaText">Instagram – miruzde</span>
@@ -55,34 +56,46 @@
 
   <!-- DONATIONS -->
   <div class="card">
-    <h2 id="donationTitle">❤️ Support & Donations</h2>
+    <h2 class="section-title" id="donationTitle">Support & Donations</h2>
 
-    <p class="bank hana" onclick="copyText('55991044203707')">
-      <i class="fas fa-university"></i>
-      <span id="hanaText">Hana –</span> <strong>55991044203707</strong>
-    </p>
+    <div class="copy-box" onclick="copyText('55991044203707')">
+      <p class="bank hana">
+        <i class="fas fa-university"></i>
+        <span id="hanaText">Hana</span> — <strong>55991044203707</strong>
+      </p>
+      <span class="copy-btn" id="copyHana">Click to copy</span>
+    </div>
 
-    <p class="bank toss" onclick="copyText('100201364233')">
-      <i class="fas fa-credit-card"></i>
-      <span id="tossText">Toss –</span> <strong>100201364233</strong>
-    </p>
+    <div class="copy-box" onclick="copyText('100201364233')">
+      <p class="bank toss">
+        <i class="fas fa-credit-card"></i>
+        <span id="tossText">Toss</span> — <strong>100201364233</strong>
+      </p>
+      <span class="copy-btn" id="copyToss">Click to copy</span>
+    </div>
   </div>
 
   <!-- CRYPTO -->
   <div class="card">
-    <h2 id="cryptoTitle">💰 Crypto Addresses</h2>
+    <h2 class="section-title" id="cryptoTitle">Crypto Addresses</h2>
 
-    <p class="crypto" onclick="copyText('TKV66Bc19oWXUN6iRkCNg8imxK8gjxrKU8X')">
-      <img class="coin-icon" src="https://cdn.simpleicons.org/tether/26A17B" alt="USDT">
-      <span id="trcText">TRC20 Address</span>:<br>
-      <strong>TKV66Bc19oWXUN6iRkCNg8imxK8gjxrKU8X</strong>
-    </p>
+    <div class="copy-box" onclick="copyText('TKV66Bc19oWXUN6iRkCNg8imxK8gjxrKU8X')">
+      <p class="crypto">
+        <img class="coin-icon" src="https://cdn.simpleicons.org/tether/26A17B">
+        <span id="trcText">TRC20 Address</span><br>
+        <strong>TKV66Bc19oWXUN6iRkCNg8imxK8gjxrKU8X</strong>
+      </p>
+      <span class="copy-btn" id="copyTRC">Click to copy</span>
+    </div>
 
-    <p class="crypto" onclick="copyText('0x507ac6f30ce7c6b4b3f587f29d1a60222cdd1757')">
-      <img class="coin-icon" src="https://cdn.simpleicons.org/binance/F3BA2F" alt="BNB">
-      <span id="bepText">BEP20 Address</span>:<br>
-      <strong>0x507ac6f30ce7c6b4b3f587f29d1a60222cdd1757</strong>
-    </p>
+    <div class="copy-box" onclick="copyText('0x507ac6f30ce7c6b4b3f587f29d1a60222cdd1757')">
+      <p class="crypto">
+        <img class="coin-icon" src="https://cdn.simpleicons.org/binance/F3BA2F">
+        <span id="bepText">BEP20 Address</span><br>
+        <strong>0x507ac6f30ce7c6b4b3f587f29d1a60222cdd1757</strong>
+      </p>
+      <span class="copy-btn" id="copyBEP">Click to copy</span>
+    </div>
   </div>
 
   <!-- TOAST -->
@@ -106,7 +119,7 @@ function typeEffect() {
   if (i < text.length) {
     title.innerText += text.charAt(i);
     i++;
-    setTimeout(typeEffect, 90);
+    setTimeout(typeEffect, 120);
   }
 }
 typeEffect();
@@ -119,51 +132,54 @@ let currentLang = "en";
 const translations = {
   en: {
     subtitle: "Official links & support page",
-    contact: "📱 Contact & Social",
+    contact: "Contact & Social",
     insta: "Instagram – miruzde",
     tgAcc: "Telegram Account – @miruzde",
     tgChan: "Telegram Channel – @blog_of_Mir",
     email: "Email – miruzde@gmail.com",
-    donation: "❤️ Support & Donations",
-    hana: "Hana –",
-    toss: "Toss –",
-    crypto: "💰 Crypto Addresses",
+    donation: "Support & Donations",
+    hana: "Hana",
+    toss: "Toss",
+    crypto: "Crypto Addresses",
     trc: "TRC20 Address",
     bep: "BEP20 Address",
     footer: "© 2026 @miruzde • All rights reserved",
-    copied: "Copied ✅"
+    copied: "Copied ✅",
+    copy: "Click to copy"
   },
   ru: {
     subtitle: "Официальные ссылки и поддержка",
-    contact: "📱 Контакты и соцсети",
+    contact: "Контакты и соцсети",
     insta: "Instagram – miruzde",
     tgAcc: "Телеграм аккаунт – @miruzde",
     tgChan: "Телеграм канал – @blog_of_Mir",
     email: "Почта – miruzde@gmail.com",
-    donation: "❤️ Поддержка и донаты",
-    hana: "Hana –",
-    toss: "Toss –",
-    crypto: "💰 Крипто адреса",
+    donation: "Поддержка и донаты",
+    hana: "Hana",
+    toss: "Toss",
+    crypto: "Крипто адреса",
     trc: "TRC20 Адрес",
     bep: "BEP20 Адрес",
     footer: "© 2026 @miruzde • Все права защищены",
-    copied: "Скопировано ✅"
+    copied: "Скопировано ✅",
+    copy: "Нажмите, чтобы скопировать"
   },
   uz: {
     subtitle: "Rasmiy havolalar va qo‘llab-quvvatlash",
-    contact: "📱 Aloqa va ijtimoiy tarmoqlar",
+    contact: "Aloqa va ijtimoiy tarmoqlar",
     insta: "Instagram – miruzde",
     tgAcc: "Telegram akkaunt – @miruzde",
     tgChan: "Telegram kanal – @blog_of_Mir",
     email: "Email – miruzde@gmail.com",
-    donation: "❤️ Qo‘llab-quvvatlash va xayriya",
-    hana: "Hana –",
-    toss: "Toss –",
-    crypto: "💰 Kripto manzillar",
+    donation: "Qo‘llab-quvvatlash va xayriya",
+    hana: "Hana",
+    toss: "Toss",
+    crypto: "Kripto manzillar",
     trc: "TRC20 Manzil",
     bep: "BEP20 Manzil",
     footer: "© 2026 @miruzde • Barcha huquqlar himoyalangan",
-    copied: "Nusxa olindi ✅"
+    copied: "Nusxa olindi ✅",
+    copy: "Nusxa olish"
   }
 };
 
@@ -184,6 +200,11 @@ function setLanguage(lang) {
   document.getElementById("trcText").innerText = t.trc;
   document.getElementById("bepText").innerText = t.bep;
   document.getElementById("footerText").innerText = t.footer;
+
+  document.getElementById("copyHana").innerText = t.copy;
+  document.getElementById("copyToss").innerText = t.copy;
+  document.getElementById("copyTRC").innerText = t.copy;
+  document.getElementById("copyBEP").innerText = t.copy;
 }
 </script>
 
