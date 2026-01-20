@@ -37,29 +37,6 @@ html[data-theme="light"] .grid-bg {
   opacity:.35;
 }
 
-/* FLOATING ICONS */
-.background-icons, .crypto-icons {
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:-2;
-}
-
-.background-icons i, .crypto-icons i {
-  position:absolute;
-  font-size:4rem;
-  opacity:.08;
-  animation: float 40s infinite ease-in-out;
-}
-
-.background-icons i { color:#8b5cf6; }
-.crypto-icons i { color:#f5c542; }
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-60px); }
-}
-
 /* 🔥 TOP NAVIGATION BAR */
 .top-nav {
   position: fixed;
@@ -104,96 +81,9 @@ html[data-theme="light"] .grid-bg {
   pointer-events: none;
 }
 
-/* 🔥 NAV CONTROLS (THEME + LANG + HAMBURGER) */
-.nav-controls {
-  display: flex;
-  align-items: center;
-  gap: .8rem;
-}
-
-/* THEME BUTTON */
-#themeToggle {
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  border:none;
-  font-size:1.4rem;
-  cursor:pointer;
-  background:#222;
-  color:#eee;
-  box-shadow:0 4px 16px rgba(0,0,0,.45);
-  transition:.2s;
-}
-
-html[data-theme="light"] #themeToggle {
-  background:#e5e7eb;
-  color:#111;
-}
-
-#themeToggle:hover { transform:scale(1.1); }
-
-/* 🔥 LANGUAGE MENU */
-.lang-menu { position:relative; }
-
-.lang-current {
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  border:none;
-  font-size:1.6rem;
-  cursor:pointer;
-  background:#222;
-  box-shadow:0 4px 16px rgba(0,0,0,.45);
-}
-
-html[data-theme="light"] .lang-current {
-  background:#e5e7eb;
-}
-
-.lang-dropdown {
-  position:absolute;
-  top:60px;
-  right:0;
-  background:#f1f1f1;
-  border-radius:14px;
-  padding:.6rem;
-  display:none;
-  flex-direction:column;
-  gap:.4rem;
-  box-shadow:0 12px 40px rgba(0,0,0,.35);
-  z-index:2000;
-}
-
-html[data-theme="dark"] .lang-dropdown {
-  background:#1f2937;
-}
-
-.lang-dropdown.show { display:flex; }
-
-.lang-dropdown button {
-  background:none;
-  border:none;
-  padding:.7rem 1.4rem;
-  border-radius:12px;
-  font-size:1.05rem;
-  cursor:pointer;
-  color:#111;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:.6rem;
-  width:160px;
-  text-align:center;
-}
-
-html[data-theme="dark"] .lang-dropdown button { color:#eee; }
-
-.lang-dropdown button:hover {
-  background:rgba(0,0,0,.08);
-}
-
-html[data-theme="dark"] .lang-dropdown button:hover {
-  background:rgba(255,255,255,.08);
+/* LANGUAGE MENU WRAPPER */
+.lang-menu {
+  position: relative;
 }
 
 /* HAMBURGER */
@@ -226,7 +116,6 @@ html[data-theme="dark"] .lang-dropdown button:hover {
   font-size: 1.3rem;
   font-weight: 600;
 }
-
 /* HERO – MODERN BLUE GRADIENT */
 .hero {
   min-height: 100vh;
@@ -394,7 +283,7 @@ html[data-theme="dark"] .social {
 html { scroll-behavior: smooth; }
 
 /* FULL PAGE SECTION OFFSET */
-#home, #connect, #support, #music {
+#home, #connect, #support {
   scroll-margin-top: 80px;
 }
 
@@ -406,4 +295,170 @@ html { scroll-behavior: smooth; }
 #connect,
 #support {
   background-color: transparent;
+}
+/* 🔥 NAV ICON GLASS PILL (APPLE STYLE, COLOR FOLLOWS NAVBAR) */
+
+.nav-controls {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  padding: 6px;
+  border-radius: 999px;
+
+  display: flex;
+  gap: 6px;
+
+  align-items: center;   /* ✅ vertical perfect centering */
+  flex-shrink: 0;        /* ✅ prevents pill from shrinking on small screens */
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.12),
+    0 6px 20px rgba(0,0,0,0.35);
+}
+
+/* Individual icon buttons inside pill */
+#themeToggle {
+  width: 44px;
+  height: 44px;
+
+  border-radius: 999px;
+  border: none;
+
+  background: rgba(255,255,255,0.08);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  font-size: 1.3rem;
+
+  transition: all .25s ease;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.15);
+}
+
+/* 🔥 LANGUAGE BUTTON – PILL SHAPE (LIKE ORANGE EXAMPLE) */
+.lang-current {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+
+  height: 44px;
+  padding: 0 .9rem;
+
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.25);
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  cursor: pointer;
+  font-size: 1.3rem;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.08);
+
+  transition: all .25s ease;
+}
+
+/* Hover – subtle glow */
+#themeToggle:hover,
+.lang-current:hover {
+  background: rgba(255,255,255,0.18);
+  transform: scale(1.08);
+}
+
+/* Light mode version – still glass, still navbar-colored */
+html[data-theme="light"] .nav-controls {
+  background: rgba(0,0,0,0.05);
+  box-shadow:
+    inset 0 0 0 1px rgba(0,0,0,0.08),
+    0 6px 20px rgba(0,0,0,0.15);
+}
+
+html[data-theme="light"] #themeToggle,
+html[data-theme="light"] .lang-current {
+  background: rgba(0,0,0,0.08);
+  color: #0d1117;
+}
+
+html[data-theme="light"] .lang-current {
+  border: 1px solid rgba(0,0,0,.15);
+}
+
+html[data-theme="light"] #themeToggle:hover,
+html[data-theme="light"] .lang-current:hover {
+  background: rgba(0,0,0,0.15);
+}
+
+/* 🔥 NEW LANGUAGE DROPDOWN – CLEAN LIKE EXAMPLE */
+
+.lang-dropdown {
+  position: absolute;
+  top: 72px;
+  right: 0;
+
+  min-width: 220px;
+  padding: .6rem;
+
+  border-radius: 22px;
+
+  background: rgba(30, 41, 59, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  box-shadow: 0 25px 60px rgba(0,0,0,.45);
+
+  display: none;
+  flex-direction: column;
+  gap: .3rem;
+
+  z-index: 2000;
+}
+
+html[data-theme="light"] .lang-dropdown {
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 25px 60px rgba(0,0,0,.25);
+}
+
+.lang-dropdown.show {
+  display: flex;
+}
+
+
+/* 🔥 LANGUAGE ROWS – FLAG + TEXT (NO EMPTY SPACE) */
+.lang-dropdown button {
+  all: unset;
+
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+
+  padding: .7rem 1rem;
+  border-radius: 14px;
+
+  font-size: 1.15rem;
+  font-weight: 600;
+
+  color: white;
+  cursor: pointer;
+
+  transition: background .2s ease;
+}
+
+html[data-theme="light"] .lang-dropdown button {
+  color: #0d1117;
+}
+
+.lang-dropdown button:hover {
+  background: rgba(255,255,255,.08);
+}
+
+html[data-theme="light"] .lang-dropdown button:hover {
+  background: rgba(0,0,0,.06);
 }
