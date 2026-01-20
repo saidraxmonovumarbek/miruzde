@@ -9,10 +9,8 @@
 </head>
 <body>
 
-  <!-- GRID BACKGROUND (GLOBAL) -->
   <div class="grid-bg"></div>
 
-  <!-- FLOATING SOCIAL ICONS BACKGROUND -->
   <div class="background-icons">
     <i class="fab fa-telegram-plane"></i>
     <i class="fab fa-instagram"></i>
@@ -22,7 +20,6 @@
     <i class="fas fa-music"></i>
   </div>
 
-  <!-- HERO -->
   <header class="hero">
     <div class="container">
       <h1 class="typing" data-text="@miruzde"></h1>
@@ -31,7 +28,6 @@
     </div>
   </header>
 
-  <!-- SOCIAL / LINKS -->
   <section class="social">
     <div class="container">
       <h2 data-i18n="connect">Connect with us</h2>
@@ -39,15 +35,12 @@
         <a href="https://www.instagram.com/miruzde" target="_blank" class="social-btn insta">
           <i class="fab fa-instagram"></i> <span>@miruzde</span>
         </a>
-
         <a href="https://t.me/miruzde" target="_blank" class="social-btn tg">
           <i class="fab fa-telegram-plane"></i> <span>@miruzde</span>
         </a>
-
         <a href="https://t.me/blog_of_Mir" target="_blank" class="social-btn tg">
           <i class="fab fa-telegram"></i> <span>@blog_of_Mir</span>
         </a>
-
         <a href="mailto:miruzde@gmail.com" class="social-btn email">
           <i class="fas fa-envelope"></i> <span>miruzde@gmail.com</span>
         </a>
@@ -55,7 +48,6 @@
     </div>
   </section>
 
-  <!-- CRYPTO BACKGROUND -->
   <div class="crypto-icons">
     <i class="fab fa-bitcoin"></i>
     <i class="fab fa-ethereum"></i>
@@ -64,54 +56,44 @@
     <i class="fab fa-ethereum"></i>
   </div>
 
-  <!-- DONATIONS & CRYPTO -->
   <section class="social crypto-section">
     <div class="container">
       <h2 data-i18n="support">Support & Donations</h2>
       <div class="social-links">
-
         <div class="social-btn email" onclick="copyText('55991044203707')">
           💳 Hana — 55991044203707
         </div>
-
         <div class="social-btn email" onclick="copyText('100201364233')">
           💳 Toss — 100201364233
         </div>
-
         <div class="social-btn tg" onclick="copyText('TKV66Bc19oWXUN6iRkCNg8imxK8gjxrKU8X')">
           🟢 USDT (TRC20)
         </div>
-
         <div class="social-btn insta" onclick="copyText('0x507ac6f30ce7c6b4b3f587f29d1a60222cdd1757')">
           🟡 BNB (BEP20)
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="container">
       <p data-i18n="footer">© 2026 Music Wave • t.me/blog_of_Mir</p>
     </div>
   </footer>
 
-  <!-- CONTROLS -->
   <div class="controls">
     <button id="themeToggle"><i class="fas fa-moon"></i></button>
     <div class="lang-flags">
-      <button onclick="setLang('en')">🇺🇸</button>
-      <button onclick="setLang('ru')">🇷🇺</button>
-      <button onclick="setLang('uz')">🇺🇿</button>
+      <button data-lang="en" onclick="setLang('en')">🇺🇸</button>
+      <button data-lang="ru" onclick="setLang('ru')">🇷🇺</button>
+      <button data-lang="uz" onclick="setLang('uz')">🇺🇿</button>
     </div>
   </div>
 
-  <!-- TOAST -->
   <div id="toast" class="toast"></div>
 
 <script>
-/* THEME */
 const themeToggle = document.getElementById('themeToggle');
 const html = document.documentElement;
 const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -125,7 +107,6 @@ themeToggle.onclick = () => {
   themeToggle.innerHTML = theme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
 };
 
-/* TYPING */
 const typingEl = document.querySelector('.typing');
 const text = typingEl.getAttribute('data-text');
 let i = 0;
@@ -140,7 +121,6 @@ function type() {
 }
 setTimeout(type, 600);
 
-/* LANGUAGE */
 const translations = {
   en: { subtitle:"Best Telegram music channel • Daily updates • No ads", join:"Join Channel", connect:"Connect with us", support:"Support & Donations", footer:"© 2026 Music Wave • t.me/blog_of_Mir", copied:"Copied ✅" },
   ru: { subtitle:"Лучший Telegram-канал с музыкой • Ежедневные обновления • Без рекламы", join:"Присоединиться", connect:"Связаться с нами", support:"Поддержка и донаты", footer:"© 2026 Music Wave • t.me/blog_of_Mir", copied:"Скопировано ✅" },
@@ -149,11 +129,14 @@ const translations = {
 
 let currentLang = localStorage.getItem('lang') || 'en';
 applyLang(currentLang);
+document.querySelector(`.lang-flags button[data-lang="${currentLang}"]`)?.classList.add('active');
 
 function setLang(lang) {
   currentLang = lang;
   localStorage.setItem('lang', lang);
   applyLang(lang);
+  document.querySelectorAll('.lang-flags button').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-flags button[data-lang="${lang}"]`)?.classList.add('active');
 }
 
 function applyLang(lang) {
@@ -163,7 +146,6 @@ function applyLang(lang) {
   });
 }
 
-/* COPY */
 function copyText(text) {
   navigator.clipboard.writeText(text);
   showToast(translations[currentLang].copied);

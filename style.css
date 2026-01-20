@@ -16,25 +16,26 @@ html[data-theme="light"] body {
 
 .container { width:min(92%,1280px); margin:0 auto; padding:0 1rem; }
 
-/* GRID BACKGROUND */
 .grid-bg {
   position:fixed;
   inset:0;
   background:
-    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
   background-size:60px 60px;
-  opacity:.4;
+  opacity:.35;
   z-index:-3;
+  pointer-events:none;
 }
 
 html[data-theme="light"] .grid-bg {
   background:
-    linear-gradient(rgba(0,0,0,.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,.08) 1px, transparent 1px);
+    linear-gradient(rgba(0,0,0,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,.06) 1px, transparent 1px);
+  background-size:60px 60px;
+  opacity:.5;
 }
 
-/* FLOATING SOCIAL ICONS */
 .background-icons, .crypto-icons {
   position:fixed;
   inset:0;
@@ -70,7 +71,6 @@ html[data-theme="light"] .grid-bg {
   50% { transform:translateY(-25vh) rotate(180deg); }
 }
 
-/* HERO */
 .hero {
   padding:18vh 0 14vh;
   text-align:center;
@@ -93,7 +93,6 @@ html[data-theme="light"] .grid-bg {
   text-decoration:none;
 }
 
-/* SOCIAL */
 .social { padding:14vh 0; text-align:center; }
 .social h2 { font-size:3.2rem; margin-bottom:4rem; }
 
@@ -126,7 +125,6 @@ html[data-theme="light"] .grid-bg {
 .tg { background:#0088cc; }
 .email { background:#444; }
 
-/* FOOTER */
 footer {
   padding:6rem 0 4rem;
   text-align:center;
@@ -135,38 +133,51 @@ footer {
 
 html[data-theme="light"] footer { border-color:#ddd; }
 
-/* CONTROLS */
 .controls {
   position:fixed;
   bottom:2rem;
   right:2rem;
   display:flex;
   gap:.8rem;
+  align-items:center;
 }
 
-.controls button {
-  width:54px;
-  height:54px;
-  border-radius:50%;
-  border:none;
-  font-size:1.4rem;
-  cursor:pointer;
-  background:#222;
-  color:#ddd;
-}
-
-/* FLAGS */
+.controls button,
 .lang-flags button {
   width:54px;
   height:54px;
   border-radius:50%;
   border:none;
-  font-size:1.8rem;
+  font-size:1.6rem;
   cursor:pointer;
   background:#222;
+  color:#eee;
+  box-shadow:0 4px 16px rgba(0,0,0,.45);
+  transition:all .2s;
 }
 
-/* TOAST */
+html[data-theme="light"] .controls button,
+html[data-theme="light"] .lang-flags button {
+  background:#e5e7eb;
+  color:#111;
+}
+
+.controls button:hover,
+.lang-flags button:hover {
+  transform:scale(1.12);
+}
+
+.lang-flags button.active {
+  background:#4b5563;
+  color:white;
+  box-shadow:0 0 0 3px rgba(75,85,99,.4);
+}
+
+html[data-theme="light"] .lang-flags button.active {
+  background:#9ca3af;
+  color:white;
+}
+
 .toast {
   position:fixed;
   bottom:7rem;
@@ -182,7 +193,6 @@ html[data-theme="light"] footer { border-color:#ddd; }
 
 .toast.show { opacity:1; }
 
-/* MOBILE */
 @media (max-width:640px) {
   .hero h1 { font-size:4.8rem; }
   .hero p { font-size:1.5rem; }
