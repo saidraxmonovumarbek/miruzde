@@ -67,13 +67,14 @@ html[data-theme="light"] .grid-bg {
   left: 0;
   width: 100%;
   height: 70px;
-  background: rgba(0,0,0,0.25);
+  background: linear-gradient(135deg, #081426, #0A192F, #3b2f1a);
   backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
   z-index: 1000;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.4);
 }
 
 .nav-left {
@@ -226,16 +227,29 @@ html[data-theme="dark"] .lang-dropdown button:hover {
   font-weight: 600;
 }
 
-/* HERO */
+/* HERO – MODERN BLUE GRADIENT */
 .hero {
   min-height: 100vh;
   padding-top: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align:center;
-  background:linear-gradient(135deg,#6e48aa,#9d50bb);
-  color:white;
+  text-align: center;
+
+  background: linear-gradient(
+    135deg,
+    #020b1a 0%,     /* very dark navy */
+    #0a2540 30%,    /* dark blue */
+    #1e4f8f 60%,    /* medium blue */
+    #4fa3d1 100%    /* light blue */
+  );
+
+  color: white;
+}
+
+.hero h1, 
+.hero p {
+  text-shadow: 0 6px 30px rgba(0,0,0,0.45);
 }
 
 .hero h1 { font-size:7rem; }
@@ -263,13 +277,34 @@ html[data-theme="dark"] .lang-dropdown button:hover {
 
 .btn:hover { box-shadow:0 14px 40px rgba(0,0,0,.5); }
 
-/* SOCIAL SECTIONS */
+/* SOCIAL – FULL PAGE, PERFECT CENTER */
 .social {
   min-height: 100vh;
-  padding-top: 70px;
+  padding-top: 70px;                 /* space for navbar */
+  padding-bottom: 70px;
   display: flex;
   align-items: center;
-  text-align:center;
+  justify-content: center;
+  text-align: center;
+
+  /* 🔥 BLOCK HOMEPAGE BACKGROUND COMPLETELY */
+  background-color: #f6f8fa;
+  position: relative;
+  z-index: 1;
+}
+
+/* DARK MODE VERSION */
+html[data-theme="dark"] .social {
+  background-color: #0d1117;
+}
+
+/* CENTER CONTENT INSIDE CONNECT & SUPPORT */
+#connect .container,
+#support .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .social h2 { font-size:3.2rem; margin-bottom:4rem; }
@@ -359,6 +394,16 @@ html[data-theme="dark"] .lang-dropdown button:hover {
 html { scroll-behavior: smooth; }
 
 /* FULL PAGE SECTION OFFSET */
-#home, #connect, #support {
+#home, #connect, #support, #music {
   scroll-margin-top: 80px;
+}
+
+/* FIX SECTION BLEED (NO COLOR LEAK BETWEEN PAGES) */
+#home {
+  background-clip: padding-box;
+}
+
+#connect,
+#support {
+  background-color: transparent;
 }

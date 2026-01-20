@@ -18,7 +18,7 @@
     <a href="#home" data-i18n="nav_home">Home</a>
     <a href="#connect" data-i18n="nav_connect">Connect with me</a>
     <a href="#support" data-i18n="nav_support">Support & Donations</a>
-    <a href="#" class="disabled" data-i18n="nav_music">Musics</a>
+    <a href="#music" data-i18n="nav_music">Musics</a>
   </div>
 
   <!-- 🔥 NAV CONTROLS -->
@@ -26,7 +26,7 @@
 
     <button id="themeToggle"><i class="fas fa-moon"></i></button>
 
-    <!-- 🔥 LANGUAGE MENU (FIXED & WORKING) -->
+    <!-- 🔥 LANGUAGE MENU -->
     <div class="lang-menu nav-lang">
       <button class="lang-current" id="currentFlag">🇺🇸</button>
 
@@ -49,7 +49,7 @@
   <a href="#home" data-i18n="nav_home">Home</a>
   <a href="#connect" data-i18n="nav_connect">Connect with me</a>
   <a href="#support" data-i18n="nav_support">Support & Donations</a>
-  <a href="#" class="disabled" data-i18n="nav_music">Musics</a>
+  <a href="#music" data-i18n="nav_music">Musics</a>
 </div>
 
 <div class="grid-bg"></div>
@@ -105,6 +105,10 @@
 <section class="social crypto-section" id="support">
   <div class="container">
     <h2 data-i18n="support">Support & Donations</h2>
+
+    <!-- CLICK TO COPY TEXT -->
+    <p data-i18n="click_copy" style="opacity:.7;margin-bottom:2rem;">Click to copy</p>
+
     <div class="social-links">
 
       <div class="social-btn email" onclick="copyText('55991044203707')">
@@ -124,6 +128,13 @@
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- 🔥 MUSIC PAGE -->
+<section class="social" id="music">
+  <div class="container">
+    <h2 data-i18n="music_coming">Coming Soon 🎵</h2>
   </div>
 </section>
 
@@ -159,9 +170,45 @@ setTimeout(type, 600);
 
 /* LANG */
 const translations = {
-  en:{ subtitle:"Best Telegram music channel • Daily updates • No ads", join:"Join Channel", connect:"Connect with me", support:"Support & Donations", nav_home:"Home", nav_connect:"Connect with me", nav_support:"Support & Donations", nav_music:"Musics", copied:"Copied ✅" },
-  ru:{ subtitle:"Лучший Telegram-канал с музыкой • Ежедневные обновления • Без рекламы", join:"Присоединиться", connect:"Связаться со мной", support:"Поддержка и донаты", nav_home:"Главная", nav_connect:"Связаться со мной", nav_support:"Поддержка и донаты", nav_music:"Музыка", copied:"Скопировано ✅" },
-  uz:{ subtitle:"Eng yaxshi Telegram musiqa kanali • Har kuni yangiliklar • Reklama yo'q", join:"Kanalga qo'shilish", connect:"Men bilan bog'laning", support:"Qo‘llab-quvvatlash", nav_home:"Bosh sahifa", nav_connect:"Men bilan bog‘laning", nav_support:"Qo‘llab-quvvatlash", nav_music:"Musiqa", copied:"Nusxa olindi ✅" }
+  en:{ 
+    subtitle:"Best Telegram music channel • Daily updates • No ads",
+    join:"Join Channel",
+    connect:"Connect with me",
+    support:"Support & Donations",
+    nav_home:"Home",
+    nav_connect:"Connect with me",
+    nav_support:"Support & Donations",
+    nav_music:"Musics",
+    music_coming:"Coming Soon 🎵",
+    click_copy:"Click to copy",
+    copied:"Copied ✅" 
+  },
+  ru:{ 
+    subtitle:"Лучший Telegram-канал с музыкой • Ежедневные обновления • Без рекламы",
+    join:"Присоединиться",
+    connect:"Связаться со мной",
+    support:"Поддержка и донаты",
+    nav_home:"Главная",
+    nav_connect:"Связаться со мной",
+    nav_support:"Поддержка и донаты",
+    nav_music:"Музыка",
+    music_coming:"Скоро 🎵",
+    click_copy:"Нажмите, чтобы скопировать",
+    copied:"Скопировано ✅" 
+  },
+  uz:{ 
+    subtitle:"Eng yaxshi Telegram musiqa kanali • Har kuni yangiliklar • Reklama yo'q",
+    join:"Kanalga qo'shilish",
+    connect:"Men bilan bog'laning",
+    support:"Qo‘llab-quvvatlash",
+    nav_home:"Bosh sahifa",
+    nav_connect:"Men bilan bog‘laning",
+    nav_support:"Qo‘llab-quvvatlash",
+    nav_music:"Musiqa",
+    music_coming:"Tez orada 🎵",
+    click_copy:"Nusxa olish uchun bosing",
+    copied:"Nusxa olindi ✅" 
+  }
 };
 
 let currentLang = localStorage.getItem("lang") || "en";
@@ -171,13 +218,11 @@ updateFlag(currentLang);
 const flagBtn = document.getElementById("currentFlag");
 const dropdown = document.getElementById("langDropdown");
 
-/* OPEN / CLOSE DROPDOWN */
 flagBtn.addEventListener("click", (e) => {
   e.stopPropagation();
   dropdown.classList.toggle("show");
 });
 
-/* CLOSE WHEN CLICK OUTSIDE */
 document.addEventListener("click", (e) => {
   if (!e.target.closest(".lang-menu")) {
     dropdown.classList.remove("show");
@@ -205,35 +250,18 @@ function updateFlag(lang){
   if(lang==="ru") currentFlag.textContent="🇷🇺";
 }
 
-/* COPY */
+/* 🔥 COPY + TOAST */
 function copyText(text){
   navigator.clipboard.writeText(text);
   showToast(translations[currentLang].copied);
 }
+
 function showToast(msg){
-  const t=document.getElementById("toast");
-  t.textContent=msg;
+  const t = document.getElementById("toast");
+  t.textContent = msg;
   t.classList.add("show");
   setTimeout(()=>t.classList.remove("show"),2200);
 }
-
-/* RANDOM ICON POSITIONS */
-document.querySelectorAll(".background-icons i, .crypto-icons i").forEach(icon=>{
-  icon.style.left = Math.random() * 100 + "%";
-  icon.style.top  = Math.random() * 100 + "%";
-});
-
-/* JOIN BUTTON SHAKE */
-window.addEventListener("DOMContentLoaded", () => {
-  const joinBtn = document.querySelector(".join-btn");
-  if (joinBtn) {
-    joinBtn.style.animation = "none";
-    setTimeout(() => {
-      joinBtn.style.animation = "dance 1.2s ease-in-out";
-      setTimeout(() => joinBtn.style.animation = "", 1300);
-    }, 900);
-  }
-});
 
 /* MOBILE MENU */
 const hamburger = document.getElementById("hamburger");
@@ -241,7 +269,6 @@ const mobileMenu = document.getElementById("mobileMenu");
 
 hamburger.onclick = () => mobileMenu.classList.toggle("show");
 
-/* SMOOTH SCROLL + CLOSE MOBILE MENU */
 document.querySelectorAll('a[href^="#"]').forEach(link=>{
   link.addEventListener("click", e=>{
     const target = document.querySelector(link.getAttribute("href"));
