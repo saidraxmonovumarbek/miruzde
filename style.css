@@ -31,9 +31,10 @@ html[data-theme="light"] body {
 
 html[data-theme="light"] .grid-bg {
   background:
-    linear-gradient(rgba(0,0,0,.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,.06) 1px, transparent 1px);
-  opacity:.5;
+    linear-gradient(rgba(0,0,0,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,.045) 1px, transparent 1px);
+  background-size:60px 60px;
+  opacity:.35;
 }
 
 /* FLOATING ICONS */
@@ -48,15 +49,15 @@ html[data-theme="light"] .grid-bg {
   position:absolute;
   font-size:4rem;
   opacity:.08;
-  animation:float 35s infinite linear;
+  animation: float 40s infinite ease-in-out;
 }
 
 .background-icons i { color:#8b5cf6; }
 .crypto-icons i { color:#f5c542; }
 
 @keyframes float {
-  0%,100% { transform:translateY(0) rotate(0deg); }
-  50% { transform:translateY(-25vh) rotate(180deg); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-60px); }
 }
 
 /* HERO */
@@ -79,6 +80,7 @@ html[data-theme="light"] .grid-bg {
 .hero p { font-size:1.9rem; margin:1.6rem 0 3rem; }
 
 .btn {
+  display: inline-block;          /* 🔥 THIS FIXES THE DANCE */
   padding:1.1rem 3rem;
   font-size:1.4rem;
   font-weight:700;
@@ -89,7 +91,10 @@ html[data-theme="light"] .grid-bg {
   transition:.2s;
 }
 
-.btn:hover { transform:translateY(-4px); box-shadow:0 14px 40px rgba(0,0,0,.5); }
+/* 🔥 FIXED: REMOVED TRANSFORM (THIS WAS BLOCKING THE DANCE) */
+.btn:hover { 
+  box-shadow:0 14px 40px rgba(0,0,0,.5); 
+}
 
 /* SOCIAL */
 .social { padding:14vh 0; text-align:center; }
@@ -124,11 +129,11 @@ html[data-theme="light"] .grid-bg {
 .tg { background:#0088cc; }
 .email { background:#444; }
 
-/* CONTROLS (TOP RIGHT FIXED) */
+/* CONTROLS */
 .controls {
   position:absolute;
   top:2rem;
-  right:3.5rem;   /* 🔥 moved left so dropdown fits */
+  right:3.5rem;
   display:flex;
   gap:.8rem;
   align-items:center;
@@ -201,14 +206,11 @@ html[data-theme="dark"] .lang-dropdown {
   font-size:1.05rem;
   cursor:pointer;
   color:#111;
-
-  /* 🔥 FIX ALIGNMENT */
   display:flex;
   align-items:center;
   justify-content:center;
   gap:.6rem;
-
-  width:160px;          /* makes all buttons same width */
+  width:160px;
   text-align:center;
 }
 
@@ -249,4 +251,27 @@ html[data-theme="dark"] .lang-dropdown button:hover {
     top:1rem;
     right:1.5rem;
   }
+}
+
+/* JOIN BUTTON DANCE EFFECT */
+.join-btn.dance {
+  animation: dance 1.2s ease-in-out;
+}
+
+@keyframes dance {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+
+  10%  { transform: translate(-12px, -4px) rotate(-2deg); }
+  20%  { transform: translate(12px, 4px) rotate(2deg); }
+
+  30%  { transform: translate(-10px, 6px) rotate(-1.5deg); }
+  40%  { transform: translate(10px, -6px) rotate(1.5deg); }
+
+  50%  { transform: translate(-8px, 4px) rotate(-1deg); }
+  60%  { transform: translate(8px, -4px) rotate(1deg); }
+
+  70%  { transform: translate(-5px, 3px) rotate(-0.5deg); }
+  80%  { transform: translate(5px, -3px) rotate(0.5deg); }
+
+  100% { transform: translate(0, 0) rotate(0deg); }
 }

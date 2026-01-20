@@ -25,13 +25,13 @@
   <div class="container">
     <h1 class="typing" data-text="@miruzde"></h1>
     <p data-i18n="subtitle">Best Telegram music channel • Daily updates • No ads</p>
-    <a href="https://t.me/blog_of_Mir" class="btn join-btn" data-i18n="join">Join Channel</a>
+    <a href="https://t.me/Trend_English_Musics" class="btn join-btn" data-i18n="join">Join Channel</a>
   </div>
 </header>
 
 <section class="social">
   <div class="container">
-    <h2 data-i18n="connect">Connect with us</h2>
+    <h2 data-i18n="connect">Connect with me</h2>
     <div class="social-links">
       <a href="https://www.instagram.com/miruzde" target="_blank" class="social-btn insta">
         <i class="fab fa-instagram"></i> <span>@miruzde</span>
@@ -131,9 +131,9 @@ setTimeout(type, 600);
 
 /* LANG */
 const translations = {
-  en:{subtitle:"Best Telegram music channel • Daily updates • No ads",join:"Join Channel",connect:"Connect with us",support:"Support & Donations",copied:"Copied ✅"},
-  ru:{subtitle:"Лучший Telegram-канал с музыкой • Ежедневные обновления • Без рекламы",join:"Присоединиться",connect:"Связаться с нами",support:"Поддержка и донаты",copied:"Скопировано ✅"},
-  uz:{subtitle:"Eng yaxshi Telegram musiqa kanali • Har kuni yangiliklar • Reklama yo'q",join:"Kanalga qo'shilish",connect:"Biz bilan bog'laning",support:"Qo‘llab-quvvatlash",copied:"Nusxa olindi ✅"}
+  en:{ subtitle:"Best Telegram music channel • Daily updates • No ads", join:"Join Channel", connect:"Connect with me", support:"Support & Donations", copied:"Copied ✅" },
+  ru:{ subtitle:"Лучший Telegram-канал с музыкой • Ежедневные обновления • Без рекламы", join:"Присоединиться", connect:"Связаться со мной", support:"Поддержка и донаты", copied:"Скопировано ✅" },
+  uz:{ subtitle:"Eng yaxshi Telegram musiqa kanali • Har kuni yangiliklar • Reklama yo'q", join:"Kanalga qo'shilish", connect:"Men bilan bog'laning", support:"Qo‘llab-quvvatlash", copied:"Nusxa olindi ✅" }
 };
 
 let currentLang = localStorage.getItem("lang") || "en";
@@ -184,8 +184,29 @@ function showToast(msg){
 
 /* RANDOM ICON POSITIONS */
 document.querySelectorAll(".background-icons i, .crypto-icons i").forEach(icon=>{
-  icon.style.left=Math.random()*100+"%";
-  icon.style.top=Math.random()*100+"%";
+  icon.style.left = Math.random() * 100 + "%";
+  icon.style.top  = Math.random() * 100 + "%";
+});
+
+/* JOIN BUTTON SHAKE ON LOAD (FINAL WORKING VERSION) */
+window.addEventListener("DOMContentLoaded", () => {
+  const joinBtn = document.querySelector(".join-btn");
+
+  if (joinBtn) {
+
+    // force restart animation
+    joinBtn.style.animation = "none";
+
+    setTimeout(() => {
+      joinBtn.style.animation = "dance 1.2s ease-in-out";
+
+      // remove animation after finish so it can replay on refresh
+      setTimeout(() => {
+        joinBtn.style.animation = "";
+      }, 1300);
+
+    }, 900); // after typing starts
+  }
 });
 </script>
 
