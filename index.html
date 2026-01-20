@@ -1,243 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>@miruzde – Official Page</title>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@miruzde • Music Wave</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-<body class="light">
+  <!-- GRID BACKGROUND (GLOBAL) -->
+  <div class="grid-bg"></div>
 
-<!-- FLOATING BACKGROUND ICONS -->
-<div class="icons-bg">
-  <i class="fab fa-instagram"></i>
-  <i class="fab fa-telegram-plane"></i>
-  <i class="fab fa-twitter"></i>
-  <i class="fab fa-youtube"></i>
-  <i class="fab fa-facebook"></i>
-  <i class="fab fa-tiktok"></i>
-  <i class="fab fa-linkedin"></i>
-</div>
-
-<!-- CONTROLS -->
-<div class="controls">
-  <div class="lang-switch">
-    <button onclick="setLanguage('en')">EN</button>
-    <button onclick="setLanguage('ru')">RU</button>
-    <button onclick="setLanguage('uz')">UZ</button>
+  <!-- FLOATING SOCIAL ICONS BACKGROUND -->
+  <div class="background-icons">
+    <i class="fab fa-telegram-plane"></i>
+    <i class="fab fa-instagram"></i>
+    <i class="fab fa-twitter"></i>
+    <i class="fab fa-youtube"></i>
+    <i class="fas fa-headphones"></i>
+    <i class="fas fa-music"></i>
   </div>
-  <button id="themeToggle" class="theme-btn">🌙</button>
-</div>
-
-<div class="container">
 
   <!-- HERO -->
-  <h1 id="title">@miruzde</h1>
-  <p class="subtitle" id="subtitle">Official links & support page</p>
+  <header class="hero">
+    <div class="container">
+      <h1 class="typing" data-text="@miruzde"></h1>
+      <p data-i18n="subtitle">Best Telegram music channel • Daily updates • No ads</p>
+      <a href="https://t.me/blog_of_Mir" class="btn join-btn" data-i18n="join">Join Channel</a>
+    </div>
+  </header>
 
-  <!-- CONTACT -->
-  <div class="card">
-    <h2 class="section-title" id="contactTitle">Contact & Social</h2>
+  <!-- SOCIAL / LINKS -->
+  <section class="social">
+    <div class="container">
+      <h2 data-i18n="connect">Connect with us</h2>
+      <div class="social-links">
+        <a href="https://www.instagram.com/miruzde" target="_blank" class="social-btn insta">
+          <i class="fab fa-instagram"></i> <span>@miruzde</span>
+        </a>
 
-    <a class="link-btn instagram" href="https://instagram.com/miruzde" target="_blank">
-      <i class="fab fa-instagram"></i> <span id="instaText">Instagram – miruzde</span>
-    </a>
+        <a href="https://t.me/miruzde" target="_blank" class="social-btn tg">
+          <i class="fab fa-telegram-plane"></i> <span>@miruzde</span>
+        </a>
 
-    <a class="link-btn telegram" href="https://t.me/miruzde" target="_blank">
-      <i class="fab fa-telegram-plane"></i> <span id="tgAccText">Telegram Account – @miruzde</span>
-    </a>
+        <a href="https://t.me/blog_of_Mir" target="_blank" class="social-btn tg">
+          <i class="fab fa-telegram"></i> <span>@blog_of_Mir</span>
+        </a>
 
-    <a class="link-btn telegram" href="https://t.me/blog_of_Mir" target="_blank">
-      <i class="fab fa-telegram-plane"></i> <span id="tgChanText">Telegram Channel – @blog_of_Mir</span>
-    </a>
+        <a href="mailto:miruzde@gmail.com" class="social-btn email">
+          <i class="fas fa-envelope"></i> <span>miruzde@gmail.com</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <a class="link-btn gmail" href="mailto:miruzde@gmail.com">
-      <i class="fas fa-envelope"></i> <span id="emailText">Email – miruzde@gmail.com</span>
-    </a>
+  <!-- CRYPTO BACKGROUND -->
+  <div class="crypto-icons">
+    <i class="fab fa-bitcoin"></i>
+    <i class="fab fa-ethereum"></i>
+    <i class="fas fa-coins"></i>
+    <i class="fab fa-bitcoin"></i>
+    <i class="fab fa-ethereum"></i>
   </div>
 
-  <!-- DONATIONS -->
-  <div class="card">
-    <h2 class="section-title" id="donationTitle">Support & Donations</h2>
+  <!-- DONATIONS & CRYPTO -->
+  <section class="social crypto-section">
+    <div class="container">
+      <h2 data-i18n="support">Support & Donations</h2>
+      <div class="social-links">
 
-    <div class="copy-box" onclick="copyText('55991044203707')">
-      <p class="bank hana">
-        <i class="fas fa-university"></i>
-        <span id="hanaText">Hana</span>
-      </p>
-      <strong class="bank-number">55991044203707</strong>
-      <span class="copy-btn" id="copyHana">Click to copy</span>
+        <div class="social-btn email" onclick="copyText('55991044203707')">
+          💳 Hana — 55991044203707
+        </div>
+
+        <div class="social-btn email" onclick="copyText('100201364233')">
+          💳 Toss — 100201364233
+        </div>
+
+        <div class="social-btn tg" onclick="copyText('TKV66Bc19oWXUN6iRkCNg8imxK8gjxrKU8X')">
+          🟢 USDT (TRC20)
+        </div>
+
+        <div class="social-btn insta" onclick="copyText('0x507ac6f30ce7c6b4b3f587f29d1a60222cdd1757')">
+          🟡 BNB (BEP20)
+        </div>
+
+      </div>
     </div>
+  </section>
 
-    <div class="copy-box" onclick="copyText('100201364233')">
-      <p class="bank toss">
-        <i class="fas fa-credit-card"></i>
-        <span id="tossText">Toss</span>
-      </p>
-      <strong class="bank-number">100201364233</strong>
-      <span class="copy-btn" id="copyToss">Click to copy</span>
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p data-i18n="footer">© 2026 Music Wave • t.me/blog_of_Mir</p>
     </div>
-  </div>
+  </footer>
 
-  <!-- CRYPTO -->
-  <div class="card">
-    <h2 class="section-title" id="cryptoTitle">Crypto Addresses</h2>
-
-    <div class="copy-box" onclick="copyText('TKV66Bc19oWXUN6iRkCNg8imxK8gjxrKU8X')">
-      <p class="crypto">
-        <img class="coin-icon" src="https://cdn.simpleicons.org/tether/26A17B">
-        <span id="trcText">TRC20 Address</span>
-      </p>
-      <strong class="crypto-number">TKV66Bc19oWXUN6iRkCNg8imxK8gjxrKU8X</strong>
-      <span class="copy-btn" id="copyTRC">Click to copy</span>
-    </div>
-
-    <div class="copy-box" onclick="copyText('0x507ac6f30ce7c6b4b3f587f29d1a60222cdd1757')">
-      <p class="crypto">
-        <img class="coin-icon" src="https://cdn.simpleicons.org/binance/F3BA2F">
-        <span id="bepText">BEP20 Address</span>
-      </p>
-      <strong class="crypto-number">0x507ac6f30ce7c6b4b3f587f29d1a60222cdd1757</strong>
-      <span class="copy-btn" id="copyBEP">Click to copy</span>
+  <!-- CONTROLS -->
+  <div class="controls">
+    <button id="themeToggle"><i class="fas fa-moon"></i></button>
+    <div class="lang-flags">
+      <button onclick="setLang('en')">🇺🇸</button>
+      <button onclick="setLang('ru')">🇷🇺</button>
+      <button onclick="setLang('uz')">🇺🇿</button>
     </div>
   </div>
 
   <!-- TOAST -->
-  <div id="toast">Copied ✅</div>
-
-  <!-- FOOTER -->
-  <footer>
-    <p id="footerText">© 2026 @miruzde • All rights reserved</p>
-  </footer>
-
-</div>
+  <div id="toast" class="toast"></div>
 
 <script>
-/* RANDOM FLOAT POSITIONS */
-document.querySelectorAll(".icons-bg i").forEach(icon => {
-  icon.style.left = Math.random() * 100 + "%";
-  icon.style.top = Math.random() * 100 + "%";
-});
+/* THEME */
+const themeToggle = document.getElementById('themeToggle');
+const html = document.documentElement;
+const savedTheme = localStorage.getItem('theme') || 'dark';
+html.setAttribute('data-theme', savedTheme);
+themeToggle.innerHTML = savedTheme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
 
-/* TITLE TYPE ANIMATION */
-const title = document.getElementById("title");
-const originalText = title.innerText;
-title.innerText = "";
-let index = 0;
-
-function typeEffect() {
-  if (index < originalText.length) {
-    title.innerText += originalText.charAt(index);
-    index++;
-    setTimeout(typeEffect, 80);
-  }
-}
-typeEffect();
-
-/* FULL LANGUAGE SYSTEM */
-let currentLang = "en";
-
-const translations = {
-  en: {
-    subtitle: "Official links & support page",
-    contact: "Contact & Social",
-    insta: "Instagram – miruzde",
-    tgAcc: "Telegram Account – @miruzde",
-    tgChan: "Telegram Channel – @blog_of_Mir",
-    email: "Email – miruzde@gmail.com",
-    donation: "Support & Donations",
-    hana: "Hana",
-    toss: "Toss",
-    crypto: "Crypto Addresses",
-    trc: "TRC20 Address",
-    bep: "BEP20 Address",
-    footer: "© 2026 @miruzde • All rights reserved",
-    copied: "Copied ✅",
-    copy: "Click to copy"
-  },
-
-  ru: {
-    subtitle: "Официальные ссылки и поддержка",
-    contact: "Контакты и соцсети",
-    insta: "Instagram – miruzde",
-    tgAcc: "Телеграм аккаунт – @miruzde",
-    tgChan: "Телеграм канал – @blog_of_Mir",
-    email: "Почта – miruzde@gmail.com",
-    donation: "Поддержка и донаты",
-    hana: "Hana",
-    toss: "Toss",
-    crypto: "Крипто адреса",
-    trc: "TRC20 Адрес",
-    bep: "BEP20 Адрес",
-    footer: "© 2026 @miruzde • Все права защищены",
-    copied: "Скопировано ✅",
-    copy: "Нажмите, чтобы скопировать"
-  },
-
-  uz: {
-    subtitle: "Rasmiy havolalar va qo‘llab-quvvatlash",
-    contact: "Aloqa va ijtimoiy tarmoqlar",
-    insta: "Instagram – miruzde",
-    tgAcc: "Telegram akkaunt – @miruzde",
-    tgChan: "Telegram kanal – @blog_of_Mir",
-    email: "Email – miruzde@gmail.com",
-    donation: "Qo‘llab-quvvatlash va xayriya",
-    hana: "Hana",
-    toss: "Toss",
-    crypto: "Kripto manzillar",
-    trc: "TRC20 Manzil",
-    bep: "BEP20 Manzil",
-    footer: "© 2026 @miruzde • Barcha huquqlar himoyalangan",
-    copied: "Nusxa olindi ✅",
-    copy: "Nusxa olish"
-  }
+themeToggle.onclick = () => {
+  let theme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+  themeToggle.innerHTML = theme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
 };
 
-function setLanguage(lang) {
+/* TYPING */
+const typingEl = document.querySelector('.typing');
+const text = typingEl.getAttribute('data-text');
+let i = 0;
+function type() {
+  if (i < text.length) {
+    typingEl.innerHTML += text.charAt(i);
+    i++;
+    setTimeout(type, 120);
+  } else {
+    typingEl.classList.add('done');
+  }
+}
+setTimeout(type, 600);
+
+/* LANGUAGE */
+const translations = {
+  en: { subtitle:"Best Telegram music channel • Daily updates • No ads", join:"Join Channel", connect:"Connect with us", support:"Support & Donations", footer:"© 2026 Music Wave • t.me/blog_of_Mir", copied:"Copied ✅" },
+  ru: { subtitle:"Лучший Telegram-канал с музыкой • Ежедневные обновления • Без рекламы", join:"Присоединиться", connect:"Связаться с нами", support:"Поддержка и донаты", footer:"© 2026 Music Wave • t.me/blog_of_Mir", copied:"Скопировано ✅" },
+  uz: { subtitle:"Eng yaxshi Telegram musiqa kanali • Har kuni yangiliklar • Reklama yo'q", join:"Kanalga qo'shilish", connect:"Biz bilan bog'laning", support:"Qo‘llab-quvvatlash", footer:"© 2026 Music Wave • t.me/blog_of_Mir", copied:"Nusxa olindi ✅" }
+};
+
+let currentLang = localStorage.getItem('lang') || 'en';
+applyLang(currentLang);
+
+function setLang(lang) {
   currentLang = lang;
-  const t = translations[lang];
-
-  subtitle.innerText = t.subtitle;
-  contactTitle.innerText = t.contact;
-  instaText.innerText = t.insta;
-  tgAccText.innerText = t.tgAcc;
-  tgChanText.innerText = t.tgChan;
-  emailText.innerText = t.email;
-  donationTitle.innerText = t.donation;
-  hanaText.innerText = t.hana;
-  tossText.innerText = t.toss;
-  cryptoTitle.innerText = t.crypto;
-  trcText.innerText = t.trc;
-  bepText.innerText = t.bep;
-  footerText.innerText = t.footer;
-
-  copyHana.innerText = t.copy;
-  copyToss.innerText = t.copy;
-  copyTRC.innerText = t.copy;
-  copyBEP.innerText = t.copy;
+  localStorage.setItem('lang', lang);
+  applyLang(lang);
 }
 
+function applyLang(lang) {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang][key]) el.textContent = translations[lang][key];
+  });
+}
+
+/* COPY */
 function copyText(text) {
   navigator.clipboard.writeText(text);
-  const toast = document.getElementById("toast");
-  toast.innerText = translations[currentLang].copied;
-  toast.style.display = "block";
-  setTimeout(() => toast.style.display = "none", 2000);
+  showToast(translations[currentLang].copied);
 }
 
-/* DARK / LIGHT */
-const toggle = document.getElementById("themeToggle");
-toggle.onclick = () => {
-  document.body.classList.toggle("dark");
-  document.body.classList.toggle("light");
-  toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
-};
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 2200);
+}
 </script>
-
 </body>
 </html>
