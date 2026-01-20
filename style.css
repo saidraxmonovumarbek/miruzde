@@ -389,3 +389,88 @@ html { scroll-behavior: smooth; }
 .lang-dropdown button:hover {
   background: rgba(255,255,255,.08);
 }
+/* 🔥 SECTION ENTRANCE ANIMATIONS */
+
+/* Hidden state */
+.animate-title,
+.animate-left,
+.animate-right {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all .5s ease;
+}
+
+/* Left buttons come from left */
+.animate-left {
+  transform: translateX(-60px);
+}
+
+/* Right buttons come from right */
+.animate-right {
+  transform: translateX(60px);
+}
+
+/* When visible */
+.show-anim {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+/* 🔥 CONNECT & SUPPORT CENTER GRID */
+
+.connect-box {
+  max-width: 700px;              /* imaginary centered square */
+  margin: 0 auto;
+}
+
+/* 4 lines, vertical stack */
+.connect-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+  align-items: stretch;
+}
+
+/* Big modern buttons */
+.big-btn {
+  font-size: 1.6rem;            /* 2x bigger text */
+  padding: 1.3rem 2.8rem;       /* 2x bigger buttons */
+  border-radius: 999px;
+  width: fit-content;
+  max-width: 100%;
+}
+
+/* LEFT aligned inside center box */
+.connect-grid .animate-left {
+  align-self: flex-start;
+}
+
+/* RIGHT aligned inside center box */
+.connect-grid .animate-right {
+  align-self: flex-end;
+}
+
+/* 🔥 ANIMATION SYSTEM */
+
+.animate-title,
+.animate-left,
+.animate-right {
+  opacity: 0;
+  transition: all .45s cubic-bezier(.22,.61,.36,1);
+}
+
+.animate-title {
+  transform: translateY(50px);
+}
+
+.animate-left {
+  transform: translateX(-80px);
+}
+
+.animate-right {
+  transform: translateX(80px);
+}
+
+.show-anim {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}

@@ -70,47 +70,71 @@
 
 <!-- 🔥 CONNECT PAGE -->
 <section class="social" id="connect">
-  <div class="container">
-    <h2 data-i18n="connect">Connect with me</h2>
-    <div class="social-links">
-      <a href="https://www.instagram.com/miruzde" target="_blank" class="social-btn insta">
+  <div class="container connect-box">
+
+    <!-- Title -->
+    <h2 data-i18n="connect" class="animate-title">Connect with me</h2>
+
+    <div class="connect-grid">
+
+      <!-- LINE 1 – LEFT -->
+      <a href="https://www.instagram.com/miruzde" target="_blank"
+         class="social-btn insta animate-left big-btn">
         <i class="fab fa-instagram"></i> <span>@miruzde</span>
       </a>
-      <a href="https://t.me/miruzde" target="_blank" class="social-btn tg">
-        <i class="fab fa-telegram-plane"></i> <span>@miruzde</span>
-      </a>
-      <a href="https://t.me/blog_of_Mir" target="_blank" class="social-btn tg">
+
+      <!-- LINE 2 – RIGHT -->
+      <a href="https://t.me/blog_of_Mir" target="_blank"
+         class="social-btn tg animate-right big-btn">
         <i class="fab fa-telegram"></i> <span>@blog_of_Mir</span>
       </a>
-      <a href="mailto:miruzde@gmail.com" class="social-btn email">
+
+      <!-- LINE 3 – LEFT -->
+      <a href="https://t.me/miruzde" target="_blank"
+         class="social-btn tg animate-left big-btn">
+        <i class="fab fa-telegram-plane"></i> <span>@miruzde</span>
+      </a>
+
+      <!-- LINE 4 – RIGHT -->
+      <a href="mailto:miruzde@gmail.com"
+         class="social-btn email animate-right big-btn">
         <i class="fas fa-envelope"></i> <span>miruzde@gmail.com</span>
       </a>
+
     </div>
   </div>
 </section>
 
 <!-- 🔥 SUPPORT PAGE -->
 <section class="social crypto-section" id="support">
-  <div class="container">
-    <h2 data-i18n="support">Support & Donations</h2>
+  <div class="container connect-box">
 
-    <!-- CLICK TO COPY TEXT -->
-    <p data-i18n="click_copy" style="opacity:.7;margin-bottom:2rem;">Click to copy</p>
+    <!-- Title -->
+    <h2 data-i18n="support" class="animate-title">Support & Donations</h2>
 
-    <div class="social-links">
+    <p data-i18n="click_copy" style="opacity:.7;margin-bottom:3rem;">
+      Click to copy
+    </p>
 
-      <div class="social-btn email" onclick="copyText('55991044203707')">
+    <div class="connect-grid">
+
+      <!-- LINE 1 – LEFT -->
+      <div class="social-btn email animate-left big-btn" onclick="copyText('55991044203707')">
         💳 Hana — 55991044203707
       </div>
 
-      <div class="social-btn email" onclick="copyText('100201364233')">
+      <!-- LINE 2 – RIGHT -->
+      <div class="social-btn email animate-right big-btn" onclick="copyText('100201364233')">
         💳 Toss — 100201364233
       </div>
 
-      <div class="social-btn tg" onclick="copyText('TKV66Bc19oWXUN6iRkCNg8imxK8gjxrKU8X')">
+      <!-- LINE 3 – LEFT -->
+      <div class="social-btn tg animate-left big-btn" onclick="copyText('TKV66Bc19oWXUN6iRkCNg8imxK8gjxrKU8X')">
         🟢 USDT (TRC20)
       </div>
-      <div class="social-btn insta" onclick="copyText('0x507ac6f30ce7c6b4b3f587f29d1a60222cdd1757')">
+
+      <!-- LINE 4 – RIGHT -->
+      <div class="social-btn insta animate-right big-btn" onclick="copyText('0x507ac6f30ce7c6b4b3f587f29d1a60222cdd1757')">
         🟡 BNB (BEP20)
       </div>
 
@@ -262,6 +286,20 @@ document.querySelectorAll('a[href="#home"]').forEach(link => {
     setTimeout(danceJoinBtn, 700); // after scroll finishes
   });
 });
+/* 🔥 SECTION SCROLL ANIMATIONS (CONNECT + SUPPORT) */
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show-anim");
+    } else {
+      entry.target.classList.remove("show-anim");
+    }
+  });
+}, { threshold: 0.35 });
+
+document.querySelectorAll(".animate-title, .animate-left, .animate-right")
+  .forEach(el => observer.observe(el));
 </script>
 
 </body>
