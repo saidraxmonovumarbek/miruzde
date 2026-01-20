@@ -21,8 +21,26 @@
     <a href="#" class="disabled" data-i18n="nav_music">Musics</a>
   </div>
 
-  <div class="hamburger" id="hamburger">
-    <i class="fas fa-bars"></i>
+  <!-- 🔥 NAV CONTROLS -->
+  <div class="nav-controls">
+
+    <button id="themeToggle"><i class="fas fa-moon"></i></button>
+
+    <!-- 🔥 LANGUAGE MENU (FIXED & WORKING) -->
+    <div class="lang-menu nav-lang">
+      <button class="lang-current" id="currentFlag">🇺🇸</button>
+
+      <div class="lang-dropdown" id="langDropdown">
+        <button onclick="setLang('en')">🇺🇸 English</button>
+        <button onclick="setLang('uz')">🇺🇿 Uzbek</button>
+        <button onclick="setLang('ru')">🇷🇺 Russian</button>
+      </div>
+    </div>
+
+    <div class="hamburger" id="hamburger">
+      <i class="fas fa-bars"></i>
+    </div>
+
   </div>
 </nav>
 
@@ -109,23 +127,6 @@
   </div>
 </section>
 
-<!-- CONTROLS -->
-<div class="controls">
-
-  <button id="themeToggle"><i class="fas fa-moon"></i></button>
-
-  <div class="lang-menu">
-    <button class="lang-current" id="currentFlag">🇺🇸</button>
-
-    <div class="lang-dropdown" id="langDropdown">
-      <button onclick="setLang('en')">🇺🇸 English</button>
-      <button onclick="setLang('uz')">🇺🇿 Uzbek</button>
-      <button onclick="setLang('ru')">🇷🇺 Russian</button>
-    </div>
-  </div>
-
-</div>
-
 <div id="toast" class="toast"></div>
 
 <script>
@@ -158,39 +159,9 @@ setTimeout(type, 600);
 
 /* LANG */
 const translations = {
-  en:{ 
-    subtitle:"Best Telegram music channel • Daily updates • No ads",
-    join:"Join Channel",
-    connect:"Connect with me",
-    support:"Support & Donations",
-    nav_home:"Home",
-    nav_connect:"Connect with me",
-    nav_support:"Support & Donations",
-    nav_music:"Musics",
-    copied:"Copied ✅" 
-  },
-  ru:{ 
-    subtitle:"Лучший Telegram-канал с музыкой • Ежедневные обновления • Без рекламы",
-    join:"Присоединиться",
-    connect:"Связаться со мной",
-    support:"Поддержка и донаты",
-    nav_home:"Главная",
-    nav_connect:"Связаться со мной",
-    nav_support:"Поддержка и донаты",
-    nav_music:"Музыка",
-    copied:"Скопировано ✅" 
-  },
-  uz:{ 
-    subtitle:"Eng yaxshi Telegram musiqa kanali • Har kuni yangiliklar • Reklama yo'q",
-    join:"Kanalga qo'shilish",
-    connect:"Men bilan bog'laning",
-    support:"Qo‘llab-quvvatlash",
-    nav_home:"Bosh sahifa",
-    nav_connect:"Men bilan bog‘laning",
-    nav_support:"Qo‘llab-quvvatlash",
-    nav_music:"Musiqa",
-    copied:"Nusxa olindi ✅" 
-  }
+  en:{ subtitle:"Best Telegram music channel • Daily updates • No ads", join:"Join Channel", connect:"Connect with me", support:"Support & Donations", nav_home:"Home", nav_connect:"Connect with me", nav_support:"Support & Donations", nav_music:"Musics", copied:"Copied ✅" },
+  ru:{ subtitle:"Лучший Telegram-канал с музыкой • Ежедневные обновления • Без рекламы", join:"Присоединиться", connect:"Связаться со мной", support:"Поддержка и донаты", nav_home:"Главная", nav_connect:"Связаться со мной", nav_support:"Поддержка и донаты", nav_music:"Музыка", copied:"Скопировано ✅" },
+  uz:{ subtitle:"Eng yaxshi Telegram musiqa kanali • Har kuni yangiliklar • Reklama yo'q", join:"Kanalga qo'shilish", connect:"Men bilan bog'laning", support:"Qo‘llab-quvvatlash", nav_home:"Bosh sahifa", nav_connect:"Men bilan bog‘laning", nav_support:"Qo‘llab-quvvatlash", nav_music:"Musiqa", copied:"Nusxa olindi ✅" }
 };
 
 let currentLang = localStorage.getItem("lang") || "en";
@@ -200,10 +171,17 @@ updateFlag(currentLang);
 const flagBtn = document.getElementById("currentFlag");
 const dropdown = document.getElementById("langDropdown");
 
-flagBtn.onclick = () => dropdown.classList.toggle("show");
+/* OPEN / CLOSE DROPDOWN */
+flagBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdown.classList.toggle("show");
+});
 
-document.addEventListener("click", e => {
-  if (!e.target.closest(".lang-menu")) dropdown.classList.remove("show");
+/* CLOSE WHEN CLICK OUTSIDE */
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".lang-menu")) {
+    dropdown.classList.remove("show");
+  }
 });
 
 function setLang(lang){
