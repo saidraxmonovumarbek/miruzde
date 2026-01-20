@@ -134,7 +134,6 @@ footer {
 html[data-theme="light"] footer { border-color:#ddd; }
 
 .controls {
-  position:fixed;
   bottom:2rem;
   right:2rem;
   display:flex;
