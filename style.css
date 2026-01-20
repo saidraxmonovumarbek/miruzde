@@ -134,7 +134,9 @@ footer {
 html[data-theme="light"] footer { border-color:#ddd; }
 
 .controls {
+  margin: -30px 30px;
   bottom:2rem;
+  height: 100px;
   right:2rem;
   display:flex;
   gap:.8rem;
