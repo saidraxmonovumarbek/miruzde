@@ -77,9 +77,15 @@ body {
 }
 
 .brand-logo {
-  height: 34px;
-  width: auto;
-  image-rendering: -webkit-optimize-contrast;
+  height: 45px;
+  width: 45px;              /* force square */
+  display: block;
+
+  border-radius: 50%;       /* 🔥 makes it circular */
+  background: #000;         /* keeps white logo visible */
+  padding: 4px;             /* space around logo */
+
+  object-fit: contain;      /* prevents stretching */
 }
 
 /* LANGUAGE MENU WRAPPER */
