@@ -302,6 +302,15 @@ const statsObserver = new IntersectionObserver(entries => {
 
 const statsSection = document.querySelector(".stats");
 if (statsSection) statsObserver.observe(statsSection);
+/* 📊 STATS ENTRANCE — RUN ONCE ON PAGE LOAD */
+window.addEventListener("load", () => {
+  const stats = document.querySelector(".stats");
+  if (stats) {
+    setTimeout(() => {
+      stats.classList.add("stats-visible");
+    }, 600); // slight delay for premium feel
+  }
+});
 </script>
 
 </body>

@@ -543,3 +543,17 @@ html { scroll-behavior: smooth; }
     background: rgba(255,255,255,0.12);
   }
 }
+/* 📊 STATS — INITIAL LOAD ENTRANCE (FROM BOTTOM) */
+.stats {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
+}
+
+/* Activated once on page load */
+.stats.stats-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
