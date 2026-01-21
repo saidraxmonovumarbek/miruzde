@@ -241,7 +241,18 @@ function showToast(msg){
 /* MOBILE MENU */
 const hamburger = document.getElementById("hamburger");
 const mobileMenu = document.getElementById("mobileMenu");
-hamburger.onclick = () => mobileMenu.classList.toggle("show");
+hamburger.onclick = () => {
+  mobileMenu.classList.toggle("show");
+
+  // reset animation so it replays every time
+  if (mobileMenu.classList.contains("show")) {
+    mobileMenu.querySelectorAll("a").forEach(link => {
+      link.style.animation = "none";
+      link.offsetHeight; // force reflow
+      link.style.animation = "";
+    });
+  }
+};
 
 document.querySelectorAll('a[href^="#"]').forEach(link=>{
   link.addEventListener("click", e=>{
