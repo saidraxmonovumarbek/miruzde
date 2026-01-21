@@ -69,6 +69,19 @@ body {
   pointer-events: none;
 }
 
+/* 🔥 BRAND (LOGO + NAME) */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.brand-logo {
+  height: 34px;
+  width: auto;
+  image-rendering: -webkit-optimize-contrast;
+}
+
 /* LANGUAGE MENU WRAPPER */
 .lang-menu {
   position: relative;
@@ -479,4 +492,9 @@ html { scroll-behavior: smooth; }
 .lang-footer .lang-dropdown {
   top: auto;
   bottom: 55px;
+}
+
+.lang-footer .lang-dropdown {
+  right: 50%;
+  transform: translateX(50%);
 }

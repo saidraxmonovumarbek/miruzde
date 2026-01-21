@@ -12,7 +12,10 @@
 
 <!-- 🔥 TOP NAVIGATION -->
 <nav class="top-nav">
-  <div class="nav-left">Miruzde</div>
+  <div class="nav-left brand">
+  <img src="logo.png" alt="Miruzde logo" class="brand-logo">
+  <span>Miruzde</span>
+</div>
 
   <div class="nav-right">
     <a href="#home" data-i18n="nav_home">Home</a>
@@ -203,19 +206,22 @@ const translations = {
 
 let currentLang = localStorage.getItem("lang") || "en";
 applyLang(currentLang);
-updateLangText(currentLang);
 
 const langBtn = document.getElementById("currentLangBtn");
 const langMenu = document.querySelector(".lang-footer .lang-menu");
 const langDropdown = langMenu.querySelector(".lang-dropdown");
+
+updateLangText(currentLang);
 
 langBtn.addEventListener("click", (e) => {
   e.stopPropagation();
   langDropdown.classList.toggle("show");
 });
 
-document.addEventListener("click", () => {
-  langDropdown.classList.remove("show");
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".lang-menu")) {
+    langDropdown.classList.remove("show");
+  }
 });
 
 function setLang(lang){
