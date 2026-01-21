@@ -577,3 +577,164 @@ html { scroll-behavior: smooth; }
     justify-self: end;       /* align it to the right edge */
   }
 }
+/* 💖 DONATION PANEL LAYOUT */
+.donation-panel {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 40px;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* LEFT SIDE */
+.donation-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.method-card {
+  background: rgba(255,255,255,0.06);
+  border-radius: 22px;
+  padding: 36px 28px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+
+  cursor: pointer;
+  border: none;
+  outline: none;
+
+  backdrop-filter: blur(10px);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.08),
+    0 10px 28px rgba(0,0,0,0.35);
+
+  transition: all 0.35s ease;
+}
+
+.method-card i {
+  font-size: 2.2rem;
+  opacity: 0.9;
+}
+
+.method-card.active {
+  box-shadow:
+    0 0 0 2px rgba(79,163,209,0.8),
+    0 18px 40px rgba(0,0,0,0.45);
+}
+
+/* DESKTOP HOVER */
+@media (hover: hover) and (pointer: fine) {
+  .method-card:hover {
+    transform: translateY(-6px);
+  }
+}
+
+/* STATES */
+.donation-placeholder,
+.donation-group {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* 👈 THIS IS THE KEY FIX */
+  gap: 1.6rem;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.donation-placeholder.active,
+.donation-group.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.donation-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  opacity: 1;
+}
+
+.donation-placeholder.hidden {
+  display: none;
+}
+
+/* 💳 DONATION ITEMS — BUTTON STYLE (BANKS + CRYPTO) */
+.donation-item {
+  padding: 1.2rem 2.4rem;
+  border-radius: 999px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+
+  cursor: pointer;
+  user-select: none;
+
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s cubic-bezier(.22,.61,.36,1),
+    box-shadow 0.25s ease;
+}
+
+/* 🎯 RIGHT SIDE — VERTICAL CENTERING */
+.donation-content {
+  position: relative;
+  min-height: 320px; /* controls vertical centering zone */
+  display: flex;
+  align-items: center;     /* 👈 vertical center */
+  justify-content: center; /* 👈 horizontal center */
+}
+
+/* Visible state */
+.donation-group.active .donation-item {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Bank default look */
+.donation-item.bank-btn {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.18),
+    rgba(255,255,255,0.08)
+  );
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.12),
+    0 8px 22px rgba(0,0,0,0.25);
+}
+
+/* Hover (desktop only) */
+@media (hover: hover) and (pointer: fine) {
+  .donation-item:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 14px 34px rgba(0,0,0,0.35),
+      inset 0 0 0 1px rgba(255,255,255,0.10);
+  }
+}
