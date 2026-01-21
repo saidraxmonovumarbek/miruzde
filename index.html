@@ -87,6 +87,31 @@
 
 <!-- 🔥 CONNECT PAGE -->
 <section class="social" id="connect">
+  <!-- 🌐 CONNECT BACKGROUND ICON GRID -->
+<div class="connect-bg-icons">
+
+  <!-- Row / grid is virtual — positions are absolute -->
+  <img src="images/instagram.png"  class="bg-icon clear" data-x="-240" data-y="-180">
+  <img src="images/facebook.png"   class="bg-icon clear" data-x="220"  data-y="140">
+  <img src="images/linkedin.png"   class="bg-icon clear" data-x="-160" data-y="60">
+  <img src="images/x.png"          class="bg-icon clear" data-x="-40"  data-y="-220">
+  <img src="images/youtube.png"    class="bg-icon clear" data-x="180"  data-y="-40">
+  <img src="images/tiktok.png"     class="bg-icon clear" data-x="0"    data-y="200">
+  <img src="images/pinterest.png"  class="bg-icon clear" data-x="260"  data-y="40">
+  <img src="images/threads.png"    class="bg-icon clear" data-x="120"  data-y="-160">
+  <img src="images/telegram.png"   class="bg-icon clear" data-x="-280" data-y="120">
+
+  <!-- 🔵 BLURRED ICONS -->
+  <img src="images/miruzde.png"    class="bg-icon blurred" data-x="-340" data-y="-40">
+  <img src="images/cryptohead.png" class="bg-icon blurred" data-x="340"  data-y="-120">
+  <img src="images/whatsapp.png"   class="bg-icon blurred" data-x="-360" data-y="200">
+  <img src="images/chatgpt.png"    class="bg-icon blurred" data-x="360"  data-y="220">
+  <img src="images/grok.png"       class="bg-icon blurred" data-x="0"    data-y="-300">
+  <img src="images/discord.png"    class="bg-icon blurred" data-x="-120" data-y="300">
+  <img src="images/gmail.png"      class="bg-icon blurred" data-x="120"  data-y="300">
+  <img src="images/gemini.png"     class="bg-icon blurred" data-x="300"  data-y="0">
+
+</div>
   <div class="container connect-box">
 
     <!-- Title -->
@@ -426,6 +451,50 @@ const supportSection = document.querySelector("#support");
 if (supportSection) {
   supportEntranceObserver.observe(supportSection);
 }
+/* 🌐 CONNECT ICON PARALLAX (BUFFER STYLE) */
+
+const icons = document.querySelectorAll(".bg-icon");
+
+// store original positions
+icons.forEach(icon => {
+  icon.style.setProperty("--x", icon.dataset.x + "px");
+  icon.style.setProperty("--y", icon.dataset.y + "px");
+});
+
+function moveIcons(x, y) {
+  icons.forEach(icon => {
+    const strength = icon.classList.contains("blurred") ? 0.035 : 0.055;
+
+    const baseX = Number(icon.dataset.x) * 1.35;
+    const baseY = Number(icon.dataset.y) * 1.35;
+
+    const offsetX = (window.innerWidth / 2 - x) * strength;
+    const offsetY = (window.innerHeight / 2 - y) * strength;
+
+    icon.style.transform =
+      `translate(-50%, -50%)
+       translate(${baseX}px, ${baseY}px)
+       translate(${offsetX}px, ${offsetY}px)`;
+  });
+}
+
+function resetIcons() {
+  icons.forEach(icon => {
+    const baseX = Number(icon.dataset.x) * 1.35;
+    const baseY = Number(icon.dataset.y) * 1.35;
+
+    icon.style.transform =
+      `translate(-50%, -50%)
+       translate(${baseX}px, ${baseY}px)`;
+  });
+}
+
+document.addEventListener("mousemove", e => {
+  moveIcons(e.clientX, e.clientY);
+});
+
+document.addEventListener("mouseleave", resetIcons);
+document.addEventListener("touchend", resetIcons);
 </script>
 
 </body>
