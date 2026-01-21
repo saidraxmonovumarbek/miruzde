@@ -87,6 +87,13 @@ body {
   opacity: .7;
 }
 
+/* 🔥 RIGHT SIDE NAV ACTIONS (LANG + HAMBURGER) */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;           /* 👈 controls space between 🌐 and ☰ */
+}
+
 /* 🔥 MOBILE MENU (FULL WIDTH FROM TOP) */
 .mobile-menu {
   position: fixed;
@@ -173,11 +180,6 @@ body {
   background-color: #0d1117;
   position: relative;
   z-index: 1;
-}
-
-/* DARK MODE VERSION */
-html[data-theme="dark"] .social {
-  background-color: #0d1117;
 }
 
 /* CENTER CONTENT INSIDE CONNECT & SUPPORT */
@@ -289,7 +291,8 @@ html { scroll-behavior: smooth; }
 #support {
   background-color: transparent;
 }
-/* 🔥 NAV ICON GLASS PILL (APPLE STYLE, COLOR FOLLOWS NAVBAR) */
+
+/* 🔥 NAV LANGUAGE GLASS PILL */
 
 .nav-controls {
   background: rgba(255,255,255,0.06);
@@ -395,25 +398,6 @@ html { scroll-behavior: smooth; }
   background: rgba(255,255,255,.08);
 }
 /* 🔥 SECTION ENTRANCE ANIMATIONS */
-
-/* Hidden state */
-.animate-title,
-.animate-left,
-.animate-right {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all .5s ease;
-}
-
-/* Left buttons come from left */
-.animate-left {
-  transform: translateX(-60px);
-}
-
-/* Right buttons come from right */
-.animate-right {
-  transform: translateX(60px);
-}
 
 /* When visible */
 .show-anim {
