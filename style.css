@@ -535,3 +535,16 @@ html { scroll-behavior: smooth; }
 .top-nav {
   animation: navDrop 1s ease-out;
 }
+/* 💳 BANK LOGO INSIDE SUPPORT BUTTON */
+.bank-btn {
+  gap: 0.9rem;
+}
+
+.bank-logo {
+  height: 30px;
+  width: auto;
+  display: block;
+}
+.bank-btn img {
+  flex-shrink: 0;
+}
