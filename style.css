@@ -25,6 +25,16 @@ body {
   pointer-events:none;
 }
 
+/* 🔒 BACKGROUND FLOATING ICONS – HARD LOCK */
+
+.background-icons {
+  position: fixed;
+  inset: 0;
+  z-index: -2;          /* below navbar AND content */
+  pointer-events: none; /* never interact */
+  opacity: 0.15;        /* optional, keeps them subtle */
+}
+
 /* 🔥 TOP NAVIGATION BAR */
 .top-nav {
   position: fixed;
@@ -503,4 +513,25 @@ html { scroll-behavior: smooth; }
 .lang-footer .lang-dropdown {
   right: 50%;
   transform: translateX(50%);
+}
+/* 🔥 NAVBAR INTRO ANIMATION */
+
+@keyframes navDrop {
+  0% {
+    transform: translateY(-100%);
+  }
+  70% {
+    transform: translateY(0);
+  }
+  85% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Play once on page load */
+.top-nav {
+  animation: navDrop 1s ease-out;
 }
