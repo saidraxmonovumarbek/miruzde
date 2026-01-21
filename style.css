@@ -74,12 +74,17 @@ body {
   position: relative;
 }
 
-/* HAMBURGER */
+/* 🔥 HAMBURGER – NAV ITEM STYLE */
 .hamburger {
   display: none;
   font-size: 1.8rem;
   color: white;
   cursor: pointer;
+  transition: opacity .2s ease;
+}
+
+.hamburger:hover {
+  opacity: .7;
 }
 
 /* 🔥 MOBILE MENU (FULL WIDTH FROM TOP) */
