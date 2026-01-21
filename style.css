@@ -769,3 +769,24 @@ html { scroll-behavior: smooth; }
   min-width: 260px;
   justify-content: center;
 }
+/* 📱 MOBILE — SLIGHTLY SMALLER DONATION BUTTONS */
+@media (max-width: 768px) {
+
+  .donation-item {
+    padding: 0.95rem 1.8rem;   /* ~10% smaller */
+    min-width: 220px;          /* smaller width */
+  }
+
+  .donation-title {
+    font-size: 1.1rem;
+  }
+
+  .donation-sub {
+    font-size: 0.78rem;
+  }
+
+  .bank-logo {
+    width: 26px;
+    height: 26px;
+  }
+}
