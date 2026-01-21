@@ -55,7 +55,33 @@
   <div class="container">
     <h1 class="typing" data-text="@miruzde"></h1>
     <p>Best Telegram music channel • No ads</p>
-<a href="https://t.me/Trend_English_Musics" class="btn join-btn">Join Channel</a>
+<a href="https://t.me/Trend_English_Musics" class="btn join-btn">Join My Playlist</a>
+<!-- 📊 CHANNEL STATS -->
+<div class="stats">
+  <div class="stat-card">
+    <i class="fas fa-users"></i>
+    <div class="stat-number" data-target="4210">0</div>
+    <div class="stat-label">Subscribers</div>
+  </div>
+
+  <div class="stat-card">
+    <i class="fas fa-eye"></i>
+    <div class="stat-number" data-target="422000">0</div>
+    <div class="stat-label">Views</div>
+  </div>
+
+  <div class="stat-card">
+    <i class="fas fa-share-nodes"></i>
+    <div class="stat-number" data-target="3215">0</div>
+    <div class="stat-label">Shares</div>
+  </div>
+
+  <div class="stat-card">
+    <i class="fas fa-heart"></i>
+    <div class="stat-number" data-target="2800">0</div>
+    <div class="stat-label">Reactions</div>
+  </div>
+</div>
   </div>
 </header>
 
@@ -185,6 +211,15 @@ document.querySelectorAll('a[href^="#"]').forEach(link=>{
 
 const joinBtn = document.querySelector(".join-btn");
 
+/* 🔥 DESKTOP HOVER DANCE (NO MOBILE) */
+if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+  joinBtn.addEventListener("mouseenter", () => {
+    joinBtn.classList.remove("dance");
+    void joinBtn.offsetWidth; // force reflow
+    joinBtn.classList.add("dance");
+  });
+}
+
 function danceJoinBtn() {
   if (!joinBtn) return;
 
@@ -218,6 +253,52 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll(".animate-title, .animate-left, .animate-right")
   .forEach(el => observer.observe(el));
+  /* 📊 STATS COUNT-UP (RUNS ONCE) */
+const statNumbers = document.querySelectorAll(".stat-number");
+let statsPlayed = false;
+
+function animateStats() {
+  if (statsPlayed) return;
+  statsPlayed = true;
+
+  statNumbers.forEach(el => {
+    const target = Number(el.dataset.target);
+    const start = Math.floor(target * (0.7 + Math.random() * 0.2));
+
+    let current = start;
+    const duration = 2200;
+    const startTime = performance.now();
+
+    function update(time) {
+      const progress = Math.min((time - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      current = Math.floor(start + (target - start) * eased);
+
+      el.textContent = current.toLocaleString();
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        el.textContent = target.toLocaleString();
+      }
+    }
+
+    requestAnimationFrame(update);
+  });
+}
+
+/* Trigger once when visible */
+const statsObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateStats();
+      statsObserver.disconnect();
+    }
+  });
+}, { threshold: 0.4 });
+
+const statsSection = document.querySelector(".stats");
+if (statsSection) statsObserver.observe(statsSection);
 </script>
 
 </body>

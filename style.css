@@ -446,3 +446,56 @@ html { scroll-behavior: smooth; }
     transition: none !important;
   }
 }
+/* 📊 STATS SECTION */
+.stats {
+  margin: 4rem auto 0 auto;   /* 👈 THIS is the key */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  width: 100%;
+  max-width: 1000px;
+  justify-content: center;
+}
+
+.stat-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 2rem 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+
+  backdrop-filter: blur(10px);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.35);
+}
+
+.stat-card i {
+  font-size: 1.8rem;
+  color: var(--accent-blue);
+  margin-bottom: 0.4rem;
+}
+
+.stat-number {
+  font-size: 2.4rem;
+  font-weight: 800;
+}
+
+.stat-label {
+  font-size: 1rem;
+  opacity: 0.75;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
