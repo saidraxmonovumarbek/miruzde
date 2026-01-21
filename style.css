@@ -1,5 +1,10 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 
+section,
+header {
+  isolation: isolate;
+}
+
 :root {
   /* COLORS */
   --bg-main: #0d1117;
@@ -209,6 +214,11 @@ body {
   transition:.2s;
 }
 
+.hero {
+  position: relative;
+  z-index: 1;
+}
+
 .btn:hover { box-shadow:0 14px 40px rgba(0,0,0,.5); }
 
 /* SOCIAL – FULL PAGE, PERFECT CENTER */
@@ -330,11 +340,6 @@ html { scroll-behavior: smooth; }
 /* FIX SECTION BLEED (NO COLOR LEAK BETWEEN PAGES) */
 #home {
   background-clip: padding-box;
-}
-
-#connect,
-#support {
-  background-color: transparent;
 }
 
 /* 🔥 SECTION ENTRANCE ANIMATIONS */
@@ -803,4 +808,8 @@ html { scroll-behavior: smooth; }
 .support-entrance.support-visible {
   opacity: 1;
   transform: translateY(0);
+}
+/* ⬆️ SUPPORT PAGE — SLIGHT UPWARD ALIGNMENT */
+#support .connect-box {
+  transform: translateY(-40px);
 }
