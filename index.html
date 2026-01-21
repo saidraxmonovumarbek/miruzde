@@ -50,15 +50,6 @@
 
 <div class="grid-bg"></div>
 
-<div class="background-icons">
-  <i class="fab fa-telegram-plane"></i>
-  <i class="fab fa-instagram"></i>
-  <i class="fab fa-twitter"></i>
-  <i class="fab fa-youtube"></i>
-  <i class="fas fa-headphones"></i>
-  <i class="fas fa-music"></i>
-</div>
-
 <!-- 🔥 HOME -->
 <header class="hero" id="home">
   <div class="container">
@@ -145,22 +136,6 @@
   </div>
 </section>
 
-<!-- 🌐 LANGUAGE SWITCHER (BOTTOM, HIDDEN UNTIL SCROLL) -->
-<div class="lang-footer">
-  <div class="lang-menu">
-    <button class="lang-current" id="currentLangBtn">
-      <i class="fas fa-globe"></i>
-      <span id="currentLangText">English</span>
-    </button>
-
-    <div class="lang-dropdown">
-      <button onclick="setLang('en')">🇺🇸 English</button>
-      <button onclick="setLang('ru')">🇷🇺 Russian</button>
-      <button onclick="setLang('uz')">🇺🇿 Uzbek</button>
-    </div>
-  </div>
-</div>
-
 <div id="toast" class="toast"></div>
 
 <script>
@@ -178,91 +153,10 @@ function type() {
 }
 setTimeout(type, 600);
 
-/* LANG */
-const translations = {
-  en:{ 
-    subtitle:"Best Telegram music channel • Daily updates • No ads",
-    join:"Join Channel",
-    connect:"Connect with me",
-    support:"Support & Donations",
-    nav_home:"Home",
-    nav_connect:"Connect with me",
-    nav_support:"Support & Donations",
-    click_copy:"Click to copy",
-    copied:"Copied ✅" 
-  },
-  ru:{ 
-    subtitle:"Лучший Telegram-канал с музыкой • Ежедневные обновления • Без рекламы",
-    join:"Присоединиться",
-    connect:"Связаться со мной",
-    support:"Поддержка и донаты",
-    nav_home:"Главная",
-    nav_connect:"Связаться со мной",
-    nav_support:"Поддержка и донаты",
-    click_copy:"Нажмите, чтобы скопировать",
-    copied:"Скопировано ✅" 
-  },
-  uz:{ 
-    subtitle:"Eng yaxshi Telegram musiqa kanali • Har kuni yangiliklar • Reklama yo'q",
-    join:"Kanalga qo'shilish",
-    connect:"Men bilan bog'laning",
-    support:"Qo‘llab-quvvatlash",
-    nav_home:"Bosh sahifa",
-    nav_connect:"Men bilan bog‘laning",
-    nav_support:"Qo‘llab-quvvatlash",
-    click_copy:"Nusxa olish uchun bosing",
-    copied:"Nusxa olindi ✅" 
-  }
-};
-
-let currentLang = localStorage.getItem("lang") || "en";
-applyLang(currentLang);
-
-const langBtn = document.getElementById("currentLangBtn");
-const langMenu = document.querySelector(".lang-footer .lang-menu");
-const langDropdown = langMenu.querySelector(".lang-dropdown");
-
-updateLangText(currentLang);
-
-langBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  langDropdown.classList.toggle("show");
-});
-
-document.addEventListener("click", (e) => {
-  if (!e.target.closest(".lang-menu")) {
-    langDropdown.classList.remove("show");
-  }
-});
-
-function setLang(lang){
-  currentLang = lang;
-  localStorage.setItem("lang",lang);
-  applyLang(lang);
-  updateLangText(lang);
-  langDropdown.classList.remove("show");
-}
-
-function applyLang(lang){
-  document.querySelectorAll("[data-i18n]").forEach(el=>{
-    const key = el.dataset.i18n;
-    if(translations[lang][key]) el.textContent = translations[lang][key];
-  });
-}
-
-function updateLangText(lang){
-  const map = {
-    en: "English",
-    ru: "Russian",
-    uz: "Uzbek"
-  };
-  document.getElementById("currentLangText").textContent = map[lang];
-}
-
 /* 🔥 COPY + TOAST */
 function copyText(text){
   navigator.clipboard.writeText(text);
-  showToast(translations[currentLang].copied);
+  showToast("Copied ✅");
 }
 
 function showToast(msg){
