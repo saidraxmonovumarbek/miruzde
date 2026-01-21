@@ -570,3 +570,10 @@ html { scroll-behavior: smooth; }
   opacity: 1;
   transform: translateY(0);
 }
+/* 📱 MOBILE NAV FIX — HAMBURGER POSITION */
+@media (max-width: 768px) {
+  .nav-actions {
+    grid-column: 3;          /* force hamburger to right column */
+    justify-self: end;       /* align it to the right edge */
+  }
+}
