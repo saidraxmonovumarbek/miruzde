@@ -23,21 +23,6 @@
   <!-- 🔥 RIGHT NAV ACTIONS -->
 <div class="nav-actions">
 
-  <div class="nav-controls">
-    <div class="lang-menu nav-lang">
-      <button class="lang-current" id="currentFlag">
-  <i class="fas fa-globe lang-globe"></i>
-  <span class="lang-flag">🇺🇸</span>
-</button>
-
-      <div class="lang-dropdown" id="langDropdown">
-        <button onclick="setLang('en')">🇺🇸 English</button>
-        <button onclick="setLang('uz')">🇺🇿 Uzbek</button>
-        <button onclick="setLang('ru')">🇷🇺 Russian</button>
-      </div>
-    </div>
-  </div>
-
   <div class="hamburger" id="hamburger">
     <i class="fas fa-bars"></i>
   </div>
@@ -146,6 +131,22 @@
   </div>
 </section>
 
+<!-- 🌐 LANGUAGE SWITCHER (BOTTOM, HIDDEN UNTIL SCROLL) -->
+<div class="lang-footer">
+  <div class="lang-menu">
+    <button class="lang-current" id="currentLangBtn">
+      <i class="fas fa-globe"></i>
+      <span id="currentLangText">English</span>
+    </button>
+
+    <div class="lang-dropdown">
+      <button onclick="setLang('en')">🇺🇸 English</button>
+      <button onclick="setLang('ru')">🇷🇺 Russian</button>
+      <button onclick="setLang('uz')">🇺🇿 Uzbek</button>
+    </div>
+  </div>
+</div>
+
 <div id="toast" class="toast"></div>
 
 <script>
@@ -202,28 +203,27 @@ const translations = {
 
 let currentLang = localStorage.getItem("lang") || "en";
 applyLang(currentLang);
-updateFlag(currentLang);
+updateLangText(currentLang);
 
-const flagBtn = document.getElementById("currentFlag");
-const dropdown = document.getElementById("langDropdown");
+const langBtn = document.getElementById("currentLangBtn");
+const langMenu = document.querySelector(".lang-footer .lang-menu");
+const langDropdown = langMenu.querySelector(".lang-dropdown");
 
-flagBtn.addEventListener("click", (e) => {
+langBtn.addEventListener("click", (e) => {
   e.stopPropagation();
-  dropdown.classList.toggle("show");
+  langDropdown.classList.toggle("show");
 });
 
-document.addEventListener("click", (e) => {
-  if (!e.target.closest(".lang-menu")) {
-    dropdown.classList.remove("show");
-  }
+document.addEventListener("click", () => {
+  langDropdown.classList.remove("show");
 });
 
 function setLang(lang){
   currentLang = lang;
   localStorage.setItem("lang",lang);
   applyLang(lang);
-  updateFlag(lang);
-  dropdown.classList.remove("show");
+  updateLangText(lang);
+  langDropdown.classList.remove("show");
 }
 
 function applyLang(lang){
@@ -233,14 +233,13 @@ function applyLang(lang){
   });
 }
 
-function updateFlag(lang){
-  const flagSpan = document.querySelector("#currentFlag .lang-flag");
-
-  if (!flagSpan) return;
-
-  if (lang === "en") flagSpan.textContent = "🇺🇸";
-  if (lang === "uz") flagSpan.textContent = "🇺🇿";
-  if (lang === "ru") flagSpan.textContent = "🇷🇺";
+function updateLangText(lang){
+  const map = {
+    en: "English",
+    ru: "Russian",
+    uz: "Uzbek"
+  };
+  document.getElementById("currentLangText").textContent = map[lang];
 }
 
 /* 🔥 COPY + TOAST */

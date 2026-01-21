@@ -292,27 +292,6 @@ html { scroll-behavior: smooth; }
   background-color: transparent;
 }
 
-/* 🔥 NAV LANGUAGE GLASS PILL */
-
-.nav-controls {
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-
-  padding: 6px;
-  border-radius: 999px;
-
-  display: flex;
-  gap: 6px;
-
-  align-items: center;   /* ✅ vertical perfect centering */
-  flex-shrink: 0;        /* ✅ prevents pill from shrinking on small screens */
-
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,0.12),
-    0 6px 20px rgba(0,0,0,0.35);
-}
-
 /* 🔥 LANGUAGE BUTTON – PILL SHAPE (LIKE ORANGE EXAMPLE) */
 .lang-current {
   display: flex;
@@ -342,10 +321,6 @@ html { scroll-behavior: smooth; }
   font-size: 1.05rem;
   opacity: .85;
   color: white;
-}
-
-.lang-flag {
-  font-size: 1.25rem;
 }
 
 /* Hover – subtle glow */
@@ -467,4 +442,41 @@ html { scroll-behavior: smooth; }
 .show-anim {
   opacity: 1;
   transform: translateX(0) translateY(0);
+}
+/* 🌐 BOTTOM LANGUAGE SWITCHER */
+
+.lang-footer {
+  position: relative;
+  margin: 6rem 0 3rem;
+  display: flex;
+  justify-content: center;
+  opacity: .6;
+  transition: opacity .25s ease;
+}
+
+.lang-footer:hover {
+  opacity: 1;
+}
+
+.lang-footer .lang-current {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+
+  padding: .6rem 1.4rem;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,.18);
+
+  color: white;
+  font-size: 1.05rem;
+  cursor: pointer;
+
+  backdrop-filter: blur(14px);
+}
+
+.lang-footer .lang-dropdown {
+  top: auto;
+  bottom: 55px;
 }
