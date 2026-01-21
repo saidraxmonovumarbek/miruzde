@@ -158,26 +158,46 @@
 
     <!-- BANKS -->
     <div class="donation-group" data-group="banks">
-      <div class="donation-item bank-btn" onclick="copyText('55991044203707')">
-        <img src="images/hana-logo.png" class="bank-logo">
-        <span>Hana — 55991044203707</span>
-      </div>
+      <div class="donation-item bank-btn" data-copy="55991044203707" onclick="copyHidden(this)">
+  <img src="images/hana-logo.png" class="bank-logo">
+  <div class="donation-text">
+    <span class="donation-title">Hana Bank</span>
+    <span class="donation-sub">
+      <i class="fas fa-copy"></i> click to copy
+    </span>
+  </div>
+</div>
 
-      <div class="donation-item bank-btn" onclick="copyText('100201364233')">
-        <img src="images/toss.png" class="bank-logo">
-        <span>Toss — 100201364233</span>
-      </div>
+      <div class="donation-item bank-btn" data-copy="100201364233" onclick="copyHidden(this)">
+  <img src="images/toss.png" class="bank-logo">
+  <div class="donation-text">
+    <span class="donation-title">Toss Bank</span>
+    <span class="donation-sub">
+      <i class="fas fa-copy"></i> click to copy
+    </span>
+  </div>
+</div>
     </div>
 
     <!-- CRYPTO -->
     <div class="donation-group" data-group="crypto">
-      <div class="donation-item tg" onclick="copyText('TKV66Bc19oWXUN6iRkCNg8imxK8gjxrKU8X')">
-        🟢 USDT (TRC20)
-      </div>
+      <div class="donation-item tg" data-copy="TKV66Bc19oWXUN6iRkCNg8imxK8gjxrKU8X" onclick="copyHidden(this)">
+  <div class="donation-text">
+    <span class="donation-title">USDT (TRC20)</span>
+    <span class="donation-sub">
+      <i class="fas fa-copy"></i> click to copy address
+    </span>
+  </div>
+</div>
 
-      <div class="donation-item insta" onclick="copyText('0x507ac6f30ce7c6b4b3f587f29d1a60222cdd1757')">
-        🟡 BNB (BEP20)
-      </div>
+      <div class="donation-item insta" data-copy="0x507ac6f30ce7c6b4b3f587f29d1a60222cdd1757" onclick="copyHidden(this)">
+  <div class="donation-text">
+    <span class="donation-title">BNB (BEP20)</span>
+    <span class="donation-sub">
+      <i class="fas fa-copy"></i> click to copy address
+    </span>
+  </div>
+</div>
     </div>
 
   </div>
@@ -205,6 +225,13 @@ setTimeout(type, 600);
 /* 🔥 COPY + TOAST */
 function copyText(text){
   navigator.clipboard.writeText(text);
+  showToast("Copied ✅");
+}
+
+function copyHidden(el) {
+  const value = el.dataset.copy;
+  if (!value) return;
+  navigator.clipboard.writeText(value);
   showToast("Copied ✅");
 }
 

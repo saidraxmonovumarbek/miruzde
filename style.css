@@ -738,3 +738,34 @@ html { scroll-behavior: smooth; }
       inset 0 0 0 1px rgba(255,255,255,0.10);
   }
 }
+/* 💖 DONATION TEXT INSIDE BUTTON */
+.donation-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.donation-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.donation-sub {
+  font-size: 0.85rem;
+  font-style: italic;
+  opacity: 0.75;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.donation-sub i {
+  font-size: 0.85rem;
+}
+
+/* Same size for bank & crypto */
+.donation-item {
+  min-width: 260px;
+  justify-content: center;
+}
