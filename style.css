@@ -446,6 +446,52 @@ html { scroll-behavior: smooth; }
     transition: none !important;
   }
 }
+
+/* 📱 MOBILE FIX — STATS CARDS ONLY */
+@media (max-width: 768px) {
+
+  /* Move stats section slightly upward */
+  .stats-section {
+    margin-top: -30px;
+  }
+
+  /* Grid layout: 2 x 2, equal columns */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  /* Force ALL cards to same size */
+  .stat-card {
+    width: 100%;
+    height: 140px;              /* 👈 equal height */
+    padding: 16px;
+    border-radius: 18px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Slightly smaller numbers on mobile */
+  .stat-number {
+    font-size: 1.6rem;
+  }
+
+  /* Slightly smaller labels */
+  .stat-label {
+    font-size: 0.95rem;
+  }
+
+  /* Icons scale down uniformly */
+  .stat-icon {
+    font-size: 1.6rem;
+    margin-bottom: 6px;
+  }
+}
+
 /* 📊 STATS SECTION */
 .stats {
   margin: 4rem auto 0 auto;   /* 👈 THIS is the key */
