@@ -548,3 +548,17 @@ html { scroll-behavior: smooth; }
 .bank-btn img {
   flex-shrink: 0;
 }
+/* 🏦 BANK LOGOS INSIDE PAYMENT BUTTONS */
+
+.bank-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;          /* space between logo and text */
+}
+
+.bank-logo {
+  width: 33px;          /* 👈 increase/decrease if needed */
+  height: 33px;
+  object-fit: contain;
+  flex-shrink: 0;       /* 🔥 prevents logo from shrinking */
+}
