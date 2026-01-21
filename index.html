@@ -132,7 +132,7 @@
     <div class="donation-panel">
 
   <!-- LEFT: METHOD SELECT -->
-  <div class="donation-methods">
+ <div class="donation-methods support-entrance">
     <button class="method-card" data-method="banks">
       <i class="fas fa-building-columns"></i>
       <span>Banks</span>
@@ -148,7 +148,7 @@
   <div class="donation-content">
 
     <!-- DEFAULT -->
-    <div class="donation-placeholder">
+    <div class="donation-placeholder support-entrance">
       <p>Please select a payment method</p>
     </div>
 
@@ -388,6 +388,33 @@ methodButtons.forEach(btn => {
     }
   });
 });
+/* 🔽 SUPPORT SECTION — ENTRANCE ANIMATION (RUN ONCE) */
+
+let supportAnimated = false;
+
+const supportEntranceObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !supportAnimated) {
+        supportAnimated = true;
+
+        document
+          .querySelectorAll(".support-entrance")
+          .forEach(el => el.classList.add("support-visible"));
+
+        supportEntranceObserver.disconnect();
+      }
+    });
+  },
+  {
+    threshold: 0.35
+  }
+);
+
+const supportSection = document.querySelector("#support");
+if (supportSection) {
+  supportEntranceObserver.observe(supportSection);
+}
 </script>
 
 </body>
