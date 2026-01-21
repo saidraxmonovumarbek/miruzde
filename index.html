@@ -25,7 +25,10 @@
 
   <div class="nav-controls">
     <div class="lang-menu nav-lang">
-      <button class="lang-current" id="currentFlag">🇺🇸</button>
+      <button class="lang-current" id="currentFlag">
+  <i class="fas fa-globe lang-globe"></i>
+  <span class="lang-flag">🇺🇸</span>
+</button>
 
       <div class="lang-dropdown" id="langDropdown">
         <button onclick="setLang('en')">🇺🇸 English</button>
@@ -231,9 +234,13 @@ function applyLang(lang){
 }
 
 function updateFlag(lang){
-  if(lang==="en") currentFlag.textContent="🇺🇸";
-  if(lang==="uz") currentFlag.textContent="🇺🇿";
-  if(lang==="ru") currentFlag.textContent="🇷🇺";
+  const flagSpan = document.querySelector("#currentFlag .lang-flag");
+
+  if (!flagSpan) return;
+
+  if (lang === "en") flagSpan.textContent = "🇺🇸";
+  if (lang === "uz") flagSpan.textContent = "🇺🇿";
+  if (lang === "ru") flagSpan.textContent = "🇷🇺";
 }
 
 /* 🔥 COPY + TOAST */
