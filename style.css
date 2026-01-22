@@ -46,23 +46,6 @@ body {
   pointer-events:none;
 }
 
-/* 🧩 CONNECT PAGE GRID (VISIBLE, LIGHT) */
-#connect::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px);
-
-  background-size: 72px 72px;
-  opacity: 0.25;
-
-  z-index: 0;
-  pointer-events: none;
-}
-
 /* 🔥 TOP NAVIGATION BAR */
 .top-nav {
   position: fixed;
@@ -235,7 +218,6 @@ body {
 .mobile-menu.show a:nth-child(3) {
   animation-delay: 0.35s;
 }
-
 /* HERO – MODERN BLUE GRADIENT */
 .hero {
   min-height: 100vh;
@@ -439,7 +421,6 @@ html { scroll-behavior: smooth; }
   width: fit-content;
   max-width: 100%;
 }
-
 /* LEFT aligned inside center box */
 .connect-grid .animate-left {
   align-self: flex-start;
@@ -662,7 +643,6 @@ html { scroll-behavior: smooth; }
   width: 100%;
   max-width: 900px;
 }
-
 /* LEFT SIDE */
 .donation-methods {
   display: flex;
@@ -876,7 +856,6 @@ html { scroll-behavior: smooth; }
     opacity 1.4s cubic-bezier(.22,.61,.36,1),
     transform 1.4s cubic-bezier(.22,.61,.36,1);
 }
-
 .support-entrance.support-visible {
   opacity: 1;
   transform: translateY(0);
@@ -884,93 +863,4 @@ html { scroll-behavior: smooth; }
 /* ⬆️ SUPPORT PAGE — SLIGHT UPWARD ALIGNMENT */
 #support .connect-box {
   transform: translateY(-40px);
-}
-/* 🌐 CONNECT PAGE — BACKGROUND ICON SYSTEM */
-
-#connect {
-  background: linear-gradient(
-    180deg,
-    #f9fbff,
-    #eef5ff
-  );
-  color: #0d1117;
-}
-
-#connect h2 {
-  color: #0d1117;
-}
-
-/* Icon container */
-.connect-bg-icons {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 0;
-}
-
-/* Base icon style */
-.bg-icon {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-
-  width: 56px;
-  height: 56px;
-
-  transform: translate(-50%, -50%);
-  transition:
-    transform 1.2s cubic-bezier(.22,.61,.36,1),
-    filter 0.6s ease,
-    opacity 0.6s ease;
-
-  opacity: 0.95;
-}
-
-/* Clear icons */
-.bg-icon.clear {
-  filter: blur(0);
-}
-
-/* 🌫️ SOFT BACKGROUND ICONS — RECOGNIZABLE */
-.bg-icon.blurred {
-  filter: blur(2.5px);        /* 👈 reduced from heavy blur */
-  opacity: 0.6;            /* 👈 clearer visibility */
-  transform: translate(-50%, -50%) scale(0.95);
-}
-
-/* Positioning from data attributes */
-.bg-icon {
-  transform:
-    translate(-50%, -50%)
-    translate(var(--x), var(--y));
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-
-  .bg-icon {
-    width: 64px;
-    height: 64px;
-    filter: blur(0) !important;
-    opacity: 1;
-  }
-
-}
-/* 🚫 SAFE ZONE ABOVE CONNECT TITLE */
-#connect .connect-box {
-  position: relative;
-  z-index: 2;
-}
-
-.connect-bg-icons {
-  padding-top: 160px; /* hard barrier */
-}
-.bg-icon {
-  border-radius: 12px;
-  background: rgba(255,255,255,0.85);
-  box-shadow:
-    0 8px 24px rgba(0,0,0,0.08),
-    inset 0 0 0 1px rgba(0,0,0,0.04);
-  padding: 10px;
 }
